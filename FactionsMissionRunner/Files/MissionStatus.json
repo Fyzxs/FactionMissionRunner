@@ -1,0 +1,35 @@
+﻿[
+    {
+        "MinValue": 95,
+        "Text": "Perfect Success"
+    },
+    {
+        "MinValue": 80,
+        "Text": "Good Success"
+    },
+    
+    {
+        "MinValue": 60,
+        "Text": "Success"
+    },
+    {
+        "MinValue": 40,
+        "Text": "Poor Success"
+    },
+    {
+        "MinValue": 30,
+        "Text": "Perfect Failure"
+    },
+    {
+        "MinValue": 20,
+        "Text": "Good Failure"
+    },
+    {
+        "MinValue": 5,
+        "Text": "Failure"
+    },
+    {
+        "MinValue": 0,
+        "Text": "Total Failure"
+    }
+]
