@@ -57,6 +57,7 @@
     <Compile Include="Core\PartyHijink.cs" />
     <Compile Include="Core\PlayerHijink.cs" />
     <Compile Include="Core\Stat.cs" />
+    <Compile Include="Core\ThreadSafeRandom.cs" />
     <Compile Include="FormMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -74,6 +75,7 @@
     <Compile Include="Loader\PartyHijinkLoader.cs" />
     <Compile Include="Loader\PlayerHijinkLoader.cs" />
     <Compile Include="Loader\StatLoader.cs" />
+    <Compile Include="Loader\TreasureLoader.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormMain.resx">

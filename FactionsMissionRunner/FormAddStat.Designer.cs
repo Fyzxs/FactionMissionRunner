@@ -37,10 +37,13 @@
             this.nudKnown = new System.Windows.Forms.NumericUpDown();
             this.btnAccept = new System.Windows.Forms.Button();
             this.pnlBoarder = new System.Windows.Forms.Panel();
+            this.lblPartyBonus = new System.Windows.Forms.Label();
+            this.nudPartyBonus = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.nudActual)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudIntel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudKnown)).BeginInit();
             this.pnlBoarder.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPartyBonus)).BeginInit();
             this.SuspendLayout();
             // 
             // lblKnown
@@ -102,7 +105,7 @@
             // 
             // btnAccept
             // 
-            this.btnAccept.Location = new System.Drawing.Point(53, 113);
+            this.btnAccept.Location = new System.Drawing.Point(53, 137);
             this.btnAccept.Name = "btnAccept";
             this.btnAccept.Size = new System.Drawing.Size(75, 23);
             this.btnAccept.TabIndex = 7;
@@ -113,6 +116,8 @@
             // pnlBoarder
             // 
             this.pnlBoarder.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlBoarder.Controls.Add(this.lblPartyBonus);
+            this.pnlBoarder.Controls.Add(this.nudPartyBonus);
             this.pnlBoarder.Controls.Add(this.lblStatLabel);
             this.pnlBoarder.Controls.Add(this.btnAccept);
             this.pnlBoarder.Controls.Add(this.lblKnown);
@@ -123,14 +128,35 @@
             this.pnlBoarder.Controls.Add(this.nudActual);
             this.pnlBoarder.Location = new System.Drawing.Point(0, 0);
             this.pnlBoarder.Name = "pnlBoarder";
-            this.pnlBoarder.Size = new System.Drawing.Size(148, 150);
+            this.pnlBoarder.Size = new System.Drawing.Size(143, 166);
             this.pnlBoarder.TabIndex = 8;
+            // 
+            // lblPartyBonus
+            // 
+            this.lblPartyBonus.AutoSize = true;
+            this.lblPartyBonus.Location = new System.Drawing.Point(12, 115);
+            this.lblPartyBonus.Name = "lblPartyBonus";
+            this.lblPartyBonus.Size = new System.Drawing.Size(64, 13);
+            this.lblPartyBonus.TabIndex = 8;
+            this.lblPartyBonus.Text = "Party Bonus";
+            // 
+            // nudPartyBonus
+            // 
+            this.nudPartyBonus.Location = new System.Drawing.Point(94, 111);
+            this.nudPartyBonus.Minimum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            -2147483648});
+            this.nudPartyBonus.Name = "nudPartyBonus";
+            this.nudPartyBonus.Size = new System.Drawing.Size(34, 20);
+            this.nudPartyBonus.TabIndex = 9;
             // 
             // FormAddStat
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(148, 150);
+            this.ClientSize = new System.Drawing.Size(143, 166);
             this.Controls.Add(this.pnlBoarder);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormAddStat";
@@ -141,6 +167,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudKnown)).EndInit();
             this.pnlBoarder.ResumeLayout(false);
             this.pnlBoarder.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPartyBonus)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -156,5 +183,7 @@
         private System.Windows.Forms.NumericUpDown nudKnown;
         private System.Windows.Forms.Button btnAccept;
         private System.Windows.Forms.Panel pnlBoarder;
+        private System.Windows.Forms.Label lblPartyBonus;
+        private System.Windows.Forms.NumericUpDown nudPartyBonus;
     }
 }

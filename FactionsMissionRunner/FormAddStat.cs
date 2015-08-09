@@ -24,6 +24,7 @@ namespace FactionsMissionRunner
                 nudActual.Value = stat.Actual;
                 nudIntel.Value = stat.Intel;
                 nudKnown.Value = stat.Known;
+                nudPartyBonus.Value = stat.Party;
             }
         }
 
@@ -37,6 +38,7 @@ namespace FactionsMissionRunner
             stat.Known = (int)nudKnown.Value;
             stat.Intel = (int)nudIntel.Value;
             stat.Actual = (int)nudActual.Value;
+            stat.Party = (int)nudPartyBonus.Value;
             Close();
         }
     }

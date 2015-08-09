@@ -12,5 +12,10 @@ namespace FactionsMissionRunner.Core
         public string Class { get; set; }
         public int Level { get; set; }
         public List<NpcStat> Stats { get; set; }
+
+        public override string ToString()
+        {
+            return $"{Name} - {Class}:{Level}";
+        }
     }
 }

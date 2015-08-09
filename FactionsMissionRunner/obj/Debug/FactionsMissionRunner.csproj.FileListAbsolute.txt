@@ -14,3 +14,20 @@ C:\Users\Quinn Gil\documents\visual studio 2015\Projects\FactionsMissionRunner\F
 C:\Users\Quinn Gil\documents\visual studio 2015\Projects\FactionsMissionRunner\FactionsMissionRunner\bin\Debug\Files\PartyHijinks.json
 C:\Users\Quinn Gil\documents\visual studio 2015\Projects\FactionsMissionRunner\FactionsMissionRunner\bin\Debug\Files\MissionStatus.json
 C:\Users\Quinn Gil\documents\visual studio 2015\Projects\FactionsMissionRunner\FactionsMissionRunner\obj\Debug\FactionsMissionRunner.FormAddStat.resources
+C:\Users\Quinn Gil\Documents\GitHub\FactionMissionRunner\FactionsMissionRunner\bin\Debug\FactionsMissionRunner.exe.config
+C:\Users\Quinn Gil\Documents\GitHub\FactionMissionRunner\FactionsMissionRunner\obj\Debug\FactionsMissionRunner.exe
+C:\Users\Quinn Gil\Documents\GitHub\FactionMissionRunner\FactionsMissionRunner\obj\Debug\FactionsMissionRunner.pdb
+C:\Users\Quinn Gil\Documents\GitHub\FactionMissionRunner\FactionsMissionRunner\bin\Debug\Files\MissionStatus.json
+C:\Users\Quinn Gil\Documents\GitHub\FactionMissionRunner\FactionsMissionRunner\bin\Debug\Files\PlayerHijinks.json
+C:\Users\Quinn Gil\Documents\GitHub\FactionMissionRunner\FactionsMissionRunner\bin\Debug\Files\PartyHijinks.json
+C:\Users\Quinn Gil\Documents\GitHub\FactionMissionRunner\FactionsMissionRunner\bin\Debug\Files\NPCs.json
+C:\Users\Quinn Gil\Documents\GitHub\FactionMissionRunner\FactionsMissionRunner\bin\Debug\Files\Stats.json
+C:\Users\Quinn Gil\Documents\GitHub\FactionMissionRunner\FactionsMissionRunner\bin\Debug\FactionsMissionRunner.exe
+C:\Users\Quinn Gil\Documents\GitHub\FactionMissionRunner\FactionsMissionRunner\bin\Debug\FactionsMissionRunner.pdb
+C:\Users\Quinn Gil\Documents\GitHub\FactionMissionRunner\FactionsMissionRunner\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Quinn Gil\Documents\GitHub\FactionMissionRunner\FactionsMissionRunner\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Quinn Gil\Documents\GitHub\FactionMissionRunner\FactionsMissionRunner\obj\Debug\FactionsMissionRunner.csprojResolveAssemblyReference.cache
+C:\Users\Quinn Gil\Documents\GitHub\FactionMissionRunner\FactionsMissionRunner\obj\Debug\FactionsMissionRunner.FrmMain.resources
+C:\Users\Quinn Gil\Documents\GitHub\FactionMissionRunner\FactionsMissionRunner\obj\Debug\FactionsMissionRunner.FormAddStat.resources
+C:\Users\Quinn Gil\Documents\GitHub\FactionMissionRunner\FactionsMissionRunner\obj\Debug\FactionsMissionRunner.Properties.Resources.resources
+C:\Users\Quinn Gil\Documents\GitHub\FactionMissionRunner\FactionsMissionRunner\obj\Debug\FactionsMissionRunner.csproj.GenerateResource.Cache

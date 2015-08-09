@@ -12,18 +12,18 @@ namespace FactionsMissionRunner.Loader
     class PartyHijinkLoader
     {
         const string FileName = "Files/PartyHijinks.json";
-        readonly static List<Stat> Stats = new List<Stat>();
+        readonly static List<PartyHijink> Hijinks = new List<PartyHijink>();
 
-        static List<Stat> Get()
+        internal static List<PartyHijink> Get()
         {
-            if (Stats.Count == 0)
+            if (Hijinks.Count == 0)
             {
-                LoadStats();
+                Load();
             }
-            return Stats;
+            return Hijinks;
         }
 
-        internal static void LoadStats()
+        internal static void Load()
         {
             using (var sw = new StreamReader(FileName))
             {
@@ -36,7 +36,7 @@ namespace FactionsMissionRunner.Loader
                     string line;
                     while ((line = reader.ReadAsString()) != null)
                     {
-                        Stats.Add(new Stat { StatName = line });
+                        Hijinks.Add(new PartyHijink() { HijinkString = line });
                     }
                 }
             }

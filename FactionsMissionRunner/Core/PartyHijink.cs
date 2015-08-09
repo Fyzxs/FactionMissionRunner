@@ -9,5 +9,10 @@ namespace FactionsMissionRunner.Core
     class PartyHijink
     {
         public string HijinkString { get; set; }
+
+        public override string ToString()
+        {
+            return HijinkString;
+        }
     }
 }

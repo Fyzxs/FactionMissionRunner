@@ -14,15 +14,15 @@ namespace FactionsMissionRunner.Loader
     internal class MissionStatusLoader
     {
         private const string FileName = "Files/MissionStatus.json";
-        private static readonly List<MissionStatus> Hijinks = new List<MissionStatus>();
+        private static readonly List<MissionStatus> Items = new List<MissionStatus>();
 
         internal static List<MissionStatus> Get()
         {
-            if (Hijinks.Count == 0)
+            if (Items.Count == 0)
             {
                 Load();
             }
-            return Hijinks;
+            return Items;
         }
 
         internal static void Load()
@@ -30,7 +30,7 @@ namespace FactionsMissionRunner.Loader
             var jArray = JArray.Parse(File.ReadAllText(FileName));
             foreach(var item in jArray)
             {
-                Hijinks.Add(new MissionStatus() {MinValue = item["MinValue"].Value<int>(), MissionStatusString = item["Text"].Value<string>()});
+                Items.Add(new MissionStatus() {MinValue = item["MinValue"].Value<int>(), MissionStatusString = item["Text"].Value<string>()});
             }
         }
     }
