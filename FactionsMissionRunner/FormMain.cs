@@ -208,14 +208,13 @@ namespace FactionsMissionRunner
                 statSuccesses += isSuccess ? 1 : 0;
                 log.WriteLine("[Aggregate Result of [Successes=" + statSuccesses + "]");
                 lstStatResults.Items.Add(stat.StatName + " [" + stat.Actual + "] " +  "Value=[" + successValue + "] Result=[" + successRoll + "]", isSuccess);
-                log.WriteLine("Line Added to StatResults [" + stat.StatName + " [" + stat.Actual + "] " + "Value=[" +
-                          successValue + "] Result=[" + successRoll + "]");
+                log.WriteLine("Line Added to StatResults [" + stat.StatName + " [" + stat.Actual + "] " + "Value=[" + successValue + "] Result=[" + successRoll + "]");
             }
 
-            var successCountEach = lstStatResults.Items.Count/lstDefaultStats.Items.Count;
+            var successCountEach = lstDefaultStats.Items.Count/lstStatResults.Items.Count;
             log.WriteLine("There number of Stats [count=" + lstDefaultStats.Items.Count + "]");
             log.WriteLine("There number of Relevant Stats [count=" + lstStatResults.Items.Count + "]");
-            log.WriteLine("[RelevantStats=" + lstStatResults.Items.Count + "] divided by [DefaultStats=" + lstDefaultStats.Items.Count + "] makes each success [worth=" + successCountEach + "]");
+            log.WriteLine("[DefaultStats=" + lstDefaultStats.Items.Count + "] divided by [RelevantStats=" + lstDefaultStats.Items.Count + "] makes each success [worth=" + successCountEach + "]");
 
             var finalSuccessRoll = Rand.Next(1, 101);
             var success = finalSuccessRoll + (statSuccesses*successCountEach) + nudAdditionalSuccessMod.Value;

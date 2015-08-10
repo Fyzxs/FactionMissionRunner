@@ -19,3 +19,4 @@ C:\Users\Quinn Gil\Documents\GitHub\FactionMissionRunner\FactionsMissionRunner\o
 C:\Users\Quinn Gil\Documents\GitHub\FactionMissionRunner\FactionsMissionRunner\obj\Release\FactionsMissionRunner.Files.StatsEdit.resources
 C:\Users\Quinn Gil\Documents\GitHub\FactionMissionRunner\FactionsMissionRunner\obj\Release\FactionsMissionRunner.Files.PlayerHijinksEdit.resources
 C:\Users\Quinn Gil\Documents\GitHub\FactionMissionRunner\FactionsMissionRunner\obj\Release\FactionsMissionRunner.Files.PartyHijinksEdit.resources
+C:\Users\Quinn Gil\Documents\GitHub\FactionMissionRunner\FactionsMissionRunner\obj\Release\FactionsMissionRunner.csprojResolveAssemblyReference.cache
