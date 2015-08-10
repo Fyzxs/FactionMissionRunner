@@ -95,12 +95,13 @@ namespace FactionsMissionRunner
 
         private void btnResolveMission_Click(object sender, EventArgs e)
         {
-            var forumPost = string.Format("[quote=\"Mission Results- " + txtMissionName.Text + "\"]\r\n[list]");
+            var forumPost = string.Format("[quote=\"[color=#008000]Mission - " + txtMissionName.Text + "[/color]\"]");
+            //log.WriteLine("[MissionName=" + txtMissionName.Text +Mission Results- " + txtMissionName.Text + "\"]\r\n[list]");
             forumPost += "\r\nParty:";
             // ReSharper disable once LoopCanBeConvertedToQuery
             foreach (Npc npc in lstNpcs.CheckedItems)
             {
-                forumPost += "\r\n[*]" + npc.Name;
+                forumPost += "\r\n[*]" + npc;
             }
             forumPost += "\r\n[/list]";
 
