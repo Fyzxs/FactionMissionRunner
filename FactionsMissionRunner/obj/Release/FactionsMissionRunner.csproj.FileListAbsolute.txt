@@ -14,3 +14,8 @@ C:\Users\Quinn Gil\Documents\GitHub\FactionMissionRunner\FactionsMissionRunner\o
 C:\Users\Quinn Gil\Documents\GitHub\FactionMissionRunner\FactionsMissionRunner\obj\Release\FactionsMissionRunner.csproj.GenerateResource.Cache
 C:\Users\Quinn Gil\Documents\GitHub\FactionMissionRunner\FactionsMissionRunner\obj\Release\FactionsMissionRunner.exe
 C:\Users\Quinn Gil\Documents\GitHub\FactionMissionRunner\FactionsMissionRunner\obj\Release\FactionsMissionRunner.pdb
+C:\Users\Quinn Gil\Documents\GitHub\FactionMissionRunner\FactionsMissionRunner\obj\Release\FactionsMissionRunner.Files.MissionStatusEdit.resources
+C:\Users\Quinn Gil\Documents\GitHub\FactionMissionRunner\FactionsMissionRunner\obj\Release\FactionsMissionRunner.Files.NpcEdit.resources
+C:\Users\Quinn Gil\Documents\GitHub\FactionMissionRunner\FactionsMissionRunner\obj\Release\FactionsMissionRunner.Files.StatsEdit.resources
+C:\Users\Quinn Gil\Documents\GitHub\FactionMissionRunner\FactionsMissionRunner\obj\Release\FactionsMissionRunner.Files.PlayerHijinksEdit.resources
+C:\Users\Quinn Gil\Documents\GitHub\FactionMissionRunner\FactionsMissionRunner\obj\Release\FactionsMissionRunner.Files.PartyHijinksEdit.resources

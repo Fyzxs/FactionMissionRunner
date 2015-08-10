@@ -16,6 +16,21 @@ namespace FactionsMissionRunner.Loader
         private const string FileName = "Files/MissionStatus.json";
         private static readonly List<MissionStatus> Items = new List<MissionStatus>();
 
+        internal static void Add(MissionStatus missionStatus)
+        {
+            Items.Add(missionStatus);
+        }
+        internal static void Remove(MissionStatus missionStatus)
+        {
+            Items.Remove(missionStatus);
+        }
+
+        internal static void Refresh()
+        {
+            Items.Clear();
+            Load();
+        }
+
         internal static List<MissionStatus> Get()
         {
             if (Items.Count == 0)
@@ -25,13 +40,18 @@ namespace FactionsMissionRunner.Loader
             return Items;
         }
 
+        internal static void SaveToFile()
+        {
+            var result = JsonConvert.SerializeObject(Items);
+
+            File.WriteAllText(FileName, result);
+            Refresh();
+        }
+
+
         internal static void Load()
         {
-            var jArray = JArray.Parse(File.ReadAllText(FileName));
-            foreach(var item in jArray)
-            {
-                Items.Add(new MissionStatus() {MinValue = item["MinValue"].Value<int>(), MissionStatusString = item["Text"].Value<string>()});
-            }
+            Items.AddRange(JsonConvert.DeserializeObject<List<MissionStatus>>(File.ReadAllText(FileName)));
         }
     }
 }

@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using FactionsMissionRunner.Core;
+using FactionsMissionRunner.Files;
 using FactionsMissionRunner.Loader;
 
 namespace FactionsMissionRunner
@@ -57,15 +58,19 @@ namespace FactionsMissionRunner
             {
                 forumPost += "\r\n[*]" + item.StatName + ":" + (item.Known < 0
                     ? "?"
-                    : item.Known + "/" + item.Intel);
+                    : item.Known.ToString());
             }
-            forumPost += "\r\n[/list]\r\n[/quote]";
+            forumPost += "\r\n[/list]";
+            forumPost += "\r\n[quote=\"Notes\"]" + txtMissionNotes.Text + "[/quote]";
+
+            forumPost += "\r\n[/quote]";
 
             txtForumCode.Text = forumPost;
         }
 
         private void btnCopyToClipboard_Click(object sender, EventArgs e)
         {
+            UpdateForumCode();
             Clipboard.SetText(txtForumCode.Text);
         }
 
@@ -145,11 +150,11 @@ namespace FactionsMissionRunner
                 partyLevels.Add(npc.Level);
             }
             var levelMedian = GetMedian(partyLevels.ToArray());
-            foreach (Npc npc in lstNpcs.CheckedItems)
+            foreach (Stat stat in lstDefaultStats.Items)
             {
-                foreach (Stat stat in lstDefaultStats.Items)
+                var statCalc = stat.Party;
+                foreach (Npc npc in lstNpcs.CheckedItems)
                 {
-                    var statCalc = stat.Party;
                     foreach (var npcStat in npc.Stats)
                     {
                         if (npcStat.StatName != stat.StatName)
@@ -158,9 +163,12 @@ namespace FactionsMissionRunner
                         }
                         statCalc += npcStat.StatValue;
                     }
-                    var successValue = statCalc - stat.Actual + levelMedian;
-                    statSuccesses += Rand.Next(1, 21) + successValue >= 10 ? 1 : 0;
                 }
+
+                var successValue = statCalc - stat.Actual + levelMedian;
+                var isSuccess = Rand.Next(1, 21) + successValue >= 10;
+                statSuccesses += isSuccess ? 1 : 0;
+                lstStatResults.Items.Add(stat.DisplayText, isSuccess);
             }
 
             var success = Rand.Next(1, 101) + statSuccesses + nudAdditionalSuccessMod.Value;
@@ -199,6 +207,31 @@ namespace FactionsMissionRunner
         private void btnCopyResult_Click(object sender, EventArgs e)
         {
             Clipboard.SetText(txtMissionResolved.Text);
+        }
+
+        private void missionStatsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new StatsEdit().ShowDialog(this);
+        }
+
+        private void partyHijinksToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new PartyHijinksEdit().ShowDialog(this);
+        }
+
+        private void playerHijinksToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new PlayerHijinksEdit().ShowDialog(this);
+        }
+
+        private void missionStatusToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new MissionStatusEdit().ShowDialog(this);
+        }
+
+        private void nPCsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new NpcEdit().ShowDialog(this);
         }
     }
 }

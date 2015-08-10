@@ -11,11 +11,14 @@ namespace FactionsMissionRunner.Core
     internal class Stat
     {
         public string StatName { get; set; }
+        [JsonIgnore]
         public int Known { get; set; }
-        public int Intel { get; set; }
+        [JsonIgnore]
         public int Actual { get; set; }
+        [JsonIgnore]
         public int Party { get; set; }
         
-        public string DisplayText => $"{StatName} - K=[ {Known} ] I=[ {Intel} ] A=[ {Actual} ] P=[ {Party} ]";
+        [JsonIgnore]
+        public string DisplayText => $"{StatName} - K=[ {Known} ] A=[ {Actual} ] P=[ {Party} ]";
     }
 }

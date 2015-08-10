@@ -22,7 +22,6 @@ namespace FactionsMissionRunner
                 stat = value;
                 lblStatLabel.Text = stat.StatName;
                 nudActual.Value = stat.Actual;
-                nudIntel.Value = stat.Intel;
                 nudKnown.Value = stat.Known;
                 nudPartyBonus.Value = stat.Party;
             }
@@ -36,7 +35,6 @@ namespace FactionsMissionRunner
         private void btnAccept_Click(object sender, EventArgs e)
         {
             stat.Known = (int)nudKnown.Value;
-            stat.Intel = (int)nudIntel.Value;
             stat.Actual = (int)nudActual.Value;
             stat.Party = (int)nudPartyBonus.Value;
             Close();

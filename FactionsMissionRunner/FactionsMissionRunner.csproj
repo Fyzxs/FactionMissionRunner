@@ -58,6 +58,36 @@
     <Compile Include="Core\PlayerHijink.cs" />
     <Compile Include="Core\Stat.cs" />
     <Compile Include="Core\ThreadSafeRandom.cs" />
+    <Compile Include="Files\MissionStatusEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Files\MissionStatusEdit.Designer.cs">
+      <DependentUpon>MissionStatusEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Files\NpcEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Files\NpcEdit.Designer.cs">
+      <DependentUpon>NpcEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Files\StatsEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Files\StatsEdit.Designer.cs">
+      <DependentUpon>StatsEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Files\PlayerHijinksEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Files\PlayerHijinksEdit.Designer.cs">
+      <DependentUpon>PlayerHijinksEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Files\PartyHijinksEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Files\PartyHijinksEdit.Designer.cs">
+      <DependentUpon>PartyHijinksEdit.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,6 +108,21 @@
     <Compile Include="Loader\TreasureLoader.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Files\MissionStatusEdit.resx">
+      <DependentUpon>MissionStatusEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Files\NpcEdit.resx">
+      <DependentUpon>NpcEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Files\StatsEdit.resx">
+      <DependentUpon>StatsEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Files\PlayerHijinksEdit.resx">
+      <DependentUpon>PlayerHijinksEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Files\PartyHiJinksEdit.resx">
+      <DependentUpon>PartyHijinksEdit.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>

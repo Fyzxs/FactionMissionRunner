@@ -25,21 +25,29 @@ namespace FactionsMissionRunner.Loader
 
         internal static void Load()
         {
-            using (var sw = new StreamReader(FileName))
-            {
-                using (JsonReader reader = new JsonTextReader(sw))
-                {
-                    if (!reader.Read())
-                    {
-                        return;
-                    }
-                    string line;
-                    while ((line = reader.ReadAsString()) != null)
-                    {
-                        Hijinks.Add(new PartyHijink() { HijinkString = line });
-                    }
-                }
-            }
+            Hijinks.AddRange(JsonConvert.DeserializeObject<List<PartyHijink>>(File.ReadAllText(FileName)));
+        }
+
+        public static void Add(PartyHijink partyHijink)
+        {
+            Hijinks.Add(partyHijink);
+        }
+        internal static void Remove(PartyHijink partyHijink)
+        {
+            Hijinks.Remove(partyHijink);
+        }
+
+        internal static void Refresh()
+        {
+            Hijinks.Clear();
+            Load();
+        }
+        internal static void SaveToFile()
+        {
+            var result = JsonConvert.SerializeObject(Hijinks);
+
+            File.WriteAllText(FileName, result);
+            Refresh();
         }
     }
 }

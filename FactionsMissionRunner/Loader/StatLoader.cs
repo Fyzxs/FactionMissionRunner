@@ -12,34 +12,44 @@ namespace FactionsMissionRunner.Loader
     class StatLoader
     {
         const string FileName = "Files/Stats.json";
-        readonly static List<Stat> Stats = new List<Stat>();
+        readonly static List<Stat> Items = new List<Stat>();
+
+        internal static void Add(Stat item)
+        {
+            Items.Add(item);
+        }
+        internal static void Remove(Stat item)
+        {
+            Items.Remove(item);
+        }
+
+        internal static void Refresh()
+        {
+            Items.Clear();
+            Load();
+        }
 
         internal static List<Stat> Get()
         {
-            if (Stats.Count == 0)
+            if (Items.Count == 0)
             {
                 Load();
             }
-            return Stats;
+            return Items;
         }
+
+        internal static void SaveToFile()
+        {
+            var result = JsonConvert.SerializeObject(Items);
+
+            File.WriteAllText(FileName, result);
+            Refresh();
+        }
+
 
         internal static void Load()
         {
-            using (var sw = new StreamReader(FileName))
-            {
-                using (JsonReader reader = new JsonTextReader(sw))
-                {
-                    if (!reader.Read())
-                    {
-                        return;
-                    }
-                    string line;
-                    while ((line = reader.ReadAsString()) != null)
-                    {
-                        Stats.Add(new Stat { StatName = line});
-                    }
-                }
-            }
-        } 
+            Items.AddRange(JsonConvert.DeserializeObject<List<Stat>>(File.ReadAllText(FileName)));
+        }
     }
 }

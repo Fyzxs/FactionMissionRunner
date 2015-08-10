@@ -1,5 +1,24 @@
 ﻿[
-    "Sleight of Hand",
-    "Magic",
-    "Stealth"
+    { "StatName": "Combat" },
+    {"StatName":"Magic"},
+    {"StatName":"Stealth"},
+    {"StatName":"Athletics"},
+    {"StatName":"Dexterity"},
+    {"StatName":"Acrobatics"},
+    {"StatName":"Sleight of Hand"},
+    {"StatName":"Stealth"},
+    {"StatName":"Arcana"},
+    {"StatName":"History"},
+    {"StatName":"Investigation"},
+    {"StatName":"Nature"},
+    {"StatName":"Religion"},
+    {"StatName":"Animal Handling"},
+    {"StatName":"Insight"},
+    {"StatName":"Medicine"},
+    {"StatName":"Perception"},
+    {"StatName":"Survival"},
+    {"StatName":"Deception"},
+    {"StatName":"Intimidation"},
+    {"StatName":"Performance"},
+    {"StatName":"Persuasion"}
 ]
