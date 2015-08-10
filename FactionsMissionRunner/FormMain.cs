@@ -11,11 +11,14 @@ using System.Windows.Forms;
 using FactionsMissionRunner.Core;
 using FactionsMissionRunner.Files;
 using FactionsMissionRunner.Loader;
+using System.IO;
 
 namespace FactionsMissionRunner
 {
     public partial class FrmMain : Form
     {
+        readonly System.IO.StreamWriter log = new System.IO.StreamWriter("FormMain.log");
+
         public FrmMain()
         {
             InitializeComponent();
@@ -51,21 +54,28 @@ namespace FactionsMissionRunner
 
         private void UpdateForumCode()
         {
-            var forumPost = string.Format("[quote=\"Mission - " + txtMissionName.Text + "\"]\r\n[list]");
-            forumPost += "\r\nMission Level: " + nudMedianPartyLevel.Value;
-            forumPost += "\r\nStats";
+            //log.WriteLine("UpdateForumCode");
+            var forumPost = string.Format("[quote=\"[color=#008000]Mission - " + txtMissionName.Text + "[/color]\"]");
+            //log.WriteLine("[MissionName=" + txtMissionName.Text + "]");
+            forumPost += "\r\nMission Level: [color=#FF0000]" + nudMedianPartyLevel.Value + "[/color]";
+            //log.WriteLine("[MissionLevel=" + nudMedianPartyLevel.Value + "]");
+            forumPost += "\r\nStats\r\n[list]";
             // ReSharper disable once LoopCanBeConvertedToQuery
             foreach (Stat item in lstDefaultStats.Items)
             {
                 if (item.Known <= 0)
                 {
+                    //log.WriteLine("Skipping [StatName=" + item.StatName + "] for having <= 0 known");
                     continue;
                 }
-                forumPost += "\r\n[*]" + item.StatName + ":" + (item.Known < 0
+
+                //log.WriteLine("Writing [StatName=" + item.StatName + "]");
+                forumPost += "\r\n[*]" + item.StatName + " : [color=#FF0000]" + (item.Known < 0
                     ? "?"
-                    : item.Known.ToString());
+                    : item.Known.ToString()) + "[/color]";
             }
             forumPost += "\r\n[/list]";
+            //log.WriteLine("[Mission Notes=" + txtMissionNotes.Text + "]");
             if (txtMissionNotes.Text.Length > 0)
             {
                 forumPost += "\r\n[quote=\"Notes\"]" + txtMissionNotes.Text + "[/quote]";
@@ -73,6 +83,8 @@ namespace FactionsMissionRunner
             forumPost += "\r\n[/quote]";
 
             txtForumCode.Text = forumPost;
+
+            //log.Flush();
         }
 
         private void btnCopyToClipboard_Click(object sender, EventArgs e)
@@ -101,6 +113,7 @@ namespace FactionsMissionRunner
             forumPost += "\r\n[/quote]";
 
             txtMissionResolved.Text = forumPost;
+            log.Flush();
         }
 
         private string GetPlayerHijinks()
@@ -150,18 +163,24 @@ namespace FactionsMissionRunner
 
         private string CalculateMissionStatus()
         {
+            log.WriteLine("CalculateMissionStatus");
+
             var partyLevels = new List<double>();
             var statSuccesses = 0;
             foreach (Npc npc in lstNpcs.CheckedItems)
             {
+                log.WriteLine("[Npc=" + npc.Name + "] [level=" + npc.Level + "]");
                 partyLevels.Add(npc.Level);
             }
             var levelMedian = GetMedian(partyLevels.ToArray());
+
+            log.WriteLine("[Median Party Level=" + levelMedian + "]");
             lstStatResults.Items.Clear();
             foreach (Stat stat in lstDefaultStats.Items)
             {
                 if (stat.Actual <= 0)
                 {
+                    log.WriteLine("Skipping [Stat=" + stat.StatName + "] for actual being 0");
                     continue;
                 }
                 var statCalc = stat.Party;
@@ -174,19 +193,34 @@ namespace FactionsMissionRunner
                             continue;
                         }
                         statCalc += npcStat.StatValue;
+                        log.WriteLine("Adding [NPC=" + npc.Name + "] [Value=" + npcStat.StatValue + "] for [Stat=" + npcStat.StatName + "]");
                     }
                 }
-
                 var successValue = (statCalc - stat.Actual) + levelMedian;
-                var successRoll = Rand.Next(1, 21) + successValue;
+                log.WriteLine("Getting Party Initial [Value=" + successValue + "] for [Stat=" + stat.StatName + "] from [Party Stat Value=" + statCalc + "] minus [Actual=" + stat.Actual +"] plus [levelMedian=" + levelMedian + "]");
+
+                var roll = Rand.Next(1, 21);
+                var successRoll =  roll + successValue;
+                log.WriteLine("[FinalRoll=" + successRoll + "] from [random=" + roll + "] plus [Value=" + successValue + "]");
+
                 var isSuccess = successRoll >= 10;
+                log.WriteLine("[FinalRoll=" + successRoll + "] >= 10 is " + (isSuccess ? "SUCCESSFUL" : "FAILURE"));
                 statSuccesses += isSuccess ? 1 : 0;
+                log.WriteLine("[Aggregate Result of [Successes=" + statSuccesses + "]");
                 lstStatResults.Items.Add(stat.StatName + " [" + stat.Actual + "] " +  "Value=[" + successValue + "] Result=[" + successRoll + "]", isSuccess);
+                log.WriteLine("Line Added to StatResults [" + stat.StatName + " [" + stat.Actual + "] " + "Value=[" +
+                          successValue + "] Result=[" + successRoll + "]");
             }
 
             var successCountEach = lstStatResults.Items.Count/lstDefaultStats.Items.Count;
+            log.WriteLine("There number of Stats [count=" + lstDefaultStats.Items.Count + "]");
+            log.WriteLine("There number of Relevant Stats [count=" + lstStatResults.Items.Count + "]");
+            log.WriteLine("[RelevantStats=" + lstStatResults.Items.Count + "] divided by [DefaultStats=" + lstDefaultStats.Items.Count + "] makes each success [worth=" + successCountEach + "]");
 
-            var success = Rand.Next(1, 101) + (statSuccesses*successCountEach) + nudAdditionalSuccessMod.Value;
+            var finalSuccessRoll = Rand.Next(1, 101);
+            var success = finalSuccessRoll + (statSuccesses*successCountEach) + nudAdditionalSuccessMod.Value;
+            log.WriteLine("[Mission Sucess=" + success + "] is the result from [d100=" + finalSuccessRoll + "] plus " +
+                      "[NumberOfSuccess=" +statSuccesses + "] times [SuccessWorth=" + successCountEach + "] plus [AdditionalPartyMod=" + nudAdditionalSuccessMod.Value + "]");
             MissionStatus missionStatus = null;
             foreach (var status in MissionStatusLoader.Get())
             {
@@ -229,6 +263,7 @@ namespace FactionsMissionRunner
             new StatsEdit().ShowDialog(this);
             lstDefaultStats.DataSource = null;
             lstDefaultStats.DataSource = StatLoader.Get();
+            lstDefaultStats.DisplayMember = "DisplayText";
         }
 
         private void partyHijinksToolStripMenuItem_Click(object sender, EventArgs e)
