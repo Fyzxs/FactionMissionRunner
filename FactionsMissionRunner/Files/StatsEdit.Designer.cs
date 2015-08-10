@@ -96,7 +96,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "StatsEdit";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "PartyHijinksEdit";
+            this.Text = "Stats Edit";
             this.Load += new System.EventHandler(this.StatsEdit_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

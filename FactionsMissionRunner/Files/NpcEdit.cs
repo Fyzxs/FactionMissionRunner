@@ -43,6 +43,22 @@ namespace FactionsMissionRunner.Files
             txtClass.Text = item.Class;
             txtName.Text = item.Name;
             nudLevel.Value = item.Level;
+            foreach (var stat in StatLoader.Get())
+            {
+                var found = false;
+                foreach (var npcStat in item.Stats)
+                {
+                    if (npcStat.StatName != stat.StatName) continue;
+
+                    found = true;
+                    break;
+                }
+                if (found)
+                {
+                    continue;
+                }
+                item.Stats.Add(new NpcStat() {StatName = stat.StatName});
+            }
             RefreshStatList();
         }
 
@@ -119,7 +135,16 @@ namespace FactionsMissionRunner.Files
 
         private void btnNew_Click(object sender, EventArgs e)
         {
-            NpcLoader.Add(new Npc() { Name = "NEW NPC", Stats = new List<NpcStat>()});
+            var npc = new Npc()
+            {
+                Name = "NEW NPC",
+                Stats = new List<NpcStat>()
+            };
+            foreach (var stat in StatLoader.Get())
+            {  
+                npc.Stats.Add(new NpcStat() {StatName = stat.StatName});
+            }
+            NpcLoader.Add(npc);
             RefreshList();
         }
 

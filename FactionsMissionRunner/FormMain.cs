@@ -52,17 +52,24 @@ namespace FactionsMissionRunner
         private void UpdateForumCode()
         {
             var forumPost = string.Format("[quote=\"Mission - " + txtMissionName.Text + "\"]\r\n[list]");
-            forumPost += "Party";
+            forumPost += "\r\nMission Level: " + nudMedianPartyLevel.Value;
+            forumPost += "\r\nStats";
             // ReSharper disable once LoopCanBeConvertedToQuery
             foreach (Stat item in lstDefaultStats.Items)
             {
+                if (item.Known <= 0)
+                {
+                    continue;
+                }
                 forumPost += "\r\n[*]" + item.StatName + ":" + (item.Known < 0
                     ? "?"
                     : item.Known.ToString());
             }
             forumPost += "\r\n[/list]";
-            forumPost += "\r\n[quote=\"Notes\"]" + txtMissionNotes.Text + "[/quote]";
-
+            if (txtMissionNotes.Text.Length > 0)
+            {
+                forumPost += "\r\n[quote=\"Notes\"]" + txtMissionNotes.Text + "[/quote]";
+            }
             forumPost += "\r\n[/quote]";
 
             txtForumCode.Text = forumPost;
@@ -150,8 +157,13 @@ namespace FactionsMissionRunner
                 partyLevels.Add(npc.Level);
             }
             var levelMedian = GetMedian(partyLevels.ToArray());
+            lstStatResults.Items.Clear();
             foreach (Stat stat in lstDefaultStats.Items)
             {
+                if (stat.Actual <= 0)
+                {
+                    continue;
+                }
                 var statCalc = stat.Party;
                 foreach (Npc npc in lstNpcs.CheckedItems)
                 {
@@ -165,13 +177,16 @@ namespace FactionsMissionRunner
                     }
                 }
 
-                var successValue = statCalc - stat.Actual + levelMedian;
-                var isSuccess = Rand.Next(1, 21) + successValue >= 10;
+                var successValue = (statCalc - stat.Actual) + levelMedian;
+                var successRoll = Rand.Next(1, 21) + successValue;
+                var isSuccess = successRoll >= 10;
                 statSuccesses += isSuccess ? 1 : 0;
-                lstStatResults.Items.Add(stat.DisplayText, isSuccess);
+                lstStatResults.Items.Add(stat.StatName + " [" + stat.Actual + "] " +  "Value=[" + successValue + "] Result=[" + successRoll + "]", isSuccess);
             }
 
-            var success = Rand.Next(1, 101) + statSuccesses + nudAdditionalSuccessMod.Value;
+            var successCountEach = lstStatResults.Items.Count/lstDefaultStats.Items.Count;
+
+            var success = Rand.Next(1, 101) + (statSuccesses*successCountEach) + nudAdditionalSuccessMod.Value;
             MissionStatus missionStatus = null;
             foreach (var status in MissionStatusLoader.Get())
             {
@@ -212,6 +227,8 @@ namespace FactionsMissionRunner
         private void missionStatsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             new StatsEdit().ShowDialog(this);
+            lstDefaultStats.DataSource = null;
+            lstDefaultStats.DataSource = StatLoader.Get();
         }
 
         private void partyHijinksToolStripMenuItem_Click(object sender, EventArgs e)
@@ -232,6 +249,13 @@ namespace FactionsMissionRunner
         private void nPCsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             new NpcEdit().ShowDialog(this);
+            lstNpcs.DataSource = null;
+            lstNpcs.DataSource = NpcLoader.Get();
+        }
+
+        private void txtMissionNotes_TextChanged(object sender, EventArgs e)
+        {
+            UpdateForumCode();
         }
     }
 }

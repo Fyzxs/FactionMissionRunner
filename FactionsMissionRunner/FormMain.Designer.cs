@@ -30,7 +30,6 @@
         {
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.lblStatInfo = new System.Windows.Forms.Label();
             this.lblMissionName = new System.Windows.Forms.Label();
             this.btnCopyToClipboard = new System.Windows.Forms.Button();
@@ -66,7 +65,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(229, 101);
+            this.label3.Location = new System.Drawing.Point(218, 82);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(83, 13);
             this.label3.TabIndex = 21;
@@ -75,25 +74,16 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(229, 87);
+            this.label2.Location = new System.Drawing.Point(156, 82);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(56, 13);
             this.label2.TabIndex = 20;
             this.label2.Text = "A = Actual";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(229, 73);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(42, 13);
-            this.label1.TabIndex = 19;
-            this.label1.Text = "I = Intel";
-            // 
             // lblStatInfo
             // 
             this.lblStatInfo.AutoSize = true;
-            this.lblStatInfo.Location = new System.Drawing.Point(229, 59);
+            this.lblStatInfo.Location = new System.Drawing.Point(91, 82);
             this.lblStatInfo.Name = "lblStatInfo";
             this.lblStatInfo.Size = new System.Drawing.Size(59, 13);
             this.lblStatInfo.TabIndex = 18;
@@ -122,7 +112,7 @@
             // 
             this.lstDefaultStats.DisplayMember = "DisplayText";
             this.lstDefaultStats.FormattingEnabled = true;
-            this.lstDefaultStats.Location = new System.Drawing.Point(15, 121);
+            this.lstDefaultStats.Location = new System.Drawing.Point(15, 102);
             this.lstDefaultStats.Name = "lstDefaultStats";
             this.lstDefaultStats.Size = new System.Drawing.Size(299, 511);
             this.lstDefaultStats.TabIndex = 12;
@@ -148,7 +138,7 @@
             // lblMissionStats
             // 
             this.lblMissionStats.AutoSize = true;
-            this.lblMissionStats.Location = new System.Drawing.Point(12, 101);
+            this.lblMissionStats.Location = new System.Drawing.Point(12, 82);
             this.lblMissionStats.Name = "lblMissionStats";
             this.lblMissionStats.Size = new System.Drawing.Size(72, 13);
             this.lblMissionStats.TabIndex = 15;
@@ -157,7 +147,7 @@
             // lstNpcs
             // 
             this.lstNpcs.FormattingEnabled = true;
-            this.lstNpcs.Location = new System.Drawing.Point(320, 121);
+            this.lstNpcs.Location = new System.Drawing.Point(320, 102);
             this.lstNpcs.Name = "lstNpcs";
             this.lstNpcs.Size = new System.Drawing.Size(249, 514);
             this.lstNpcs.TabIndex = 22;
@@ -165,7 +155,7 @@
             // lblNpcs
             // 
             this.lblNpcs.AutoSize = true;
-            this.lblNpcs.Location = new System.Drawing.Point(317, 101);
+            this.lblNpcs.Location = new System.Drawing.Point(317, 82);
             this.lblNpcs.Name = "lblNpcs";
             this.lblNpcs.Size = new System.Drawing.Size(37, 13);
             this.lblNpcs.TabIndex = 23;
@@ -173,7 +163,7 @@
             // 
             // txtMissionResolved
             // 
-            this.txtMissionResolved.Location = new System.Drawing.Point(803, 265);
+            this.txtMissionResolved.Location = new System.Drawing.Point(803, 251);
             this.txtMissionResolved.Multiline = true;
             this.txtMissionResolved.Name = "txtMissionResolved";
             this.txtMissionResolved.ScrollBars = System.Windows.Forms.ScrollBars.Both;
@@ -182,7 +172,7 @@
             // 
             // btnCopyResult
             // 
-            this.btnCopyResult.Location = new System.Drawing.Point(918, 236);
+            this.btnCopyResult.Location = new System.Drawing.Point(918, 222);
             this.btnCopyResult.Name = "btnCopyResult";
             this.btnCopyResult.Size = new System.Drawing.Size(75, 23);
             this.btnCopyResult.TabIndex = 25;
@@ -192,7 +182,7 @@
             // 
             // btnResolveMission
             // 
-            this.btnResolveMission.Location = new System.Drawing.Point(803, 236);
+            this.btnResolveMission.Location = new System.Drawing.Point(803, 222);
             this.btnResolveMission.Name = "btnResolveMission";
             this.btnResolveMission.Size = new System.Drawing.Size(75, 23);
             this.btnResolveMission.TabIndex = 26;
@@ -203,7 +193,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 73);
+            this.label4.Location = new System.Drawing.Point(12, 59);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(101, 13);
             this.label4.TabIndex = 27;
@@ -211,7 +201,7 @@
             // 
             // nudMedianPartyLevel
             // 
-            this.nudMedianPartyLevel.Location = new System.Drawing.Point(123, 69);
+            this.nudMedianPartyLevel.Location = new System.Drawing.Point(123, 55);
             this.nudMedianPartyLevel.Maximum = new decimal(new int[] {
             20,
             0,
@@ -234,7 +224,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(800, 220);
+            this.label5.Location = new System.Drawing.Point(800, 206);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(140, 13);
             this.label5.TabIndex = 30;
@@ -242,7 +232,7 @@
             // 
             // nudAdditionalSuccessMod
             // 
-            this.nudAdditionalSuccessMod.Location = new System.Drawing.Point(957, 216);
+            this.nudAdditionalSuccessMod.Location = new System.Drawing.Point(957, 202);
             this.nudAdditionalSuccessMod.Maximum = new decimal(new int[] {
             99,
             0,
@@ -256,7 +246,7 @@
             // 
             this.lstStatResults.Enabled = false;
             this.lstStatResults.FormattingEnabled = true;
-            this.lstStatResults.Location = new System.Drawing.Point(575, 265);
+            this.lstStatResults.Location = new System.Drawing.Point(575, 251);
             this.lstStatResults.Name = "lstStatResults";
             this.lstStatResults.Size = new System.Drawing.Size(222, 364);
             this.lstStatResults.TabIndex = 32;
@@ -264,7 +254,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(575, 249);
+            this.label6.Location = new System.Drawing.Point(575, 235);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(161, 13);
             this.label6.TabIndex = 33;
@@ -278,6 +268,7 @@
             this.txtMissionNotes.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.txtMissionNotes.Size = new System.Drawing.Size(171, 122);
             this.txtMissionNotes.TabIndex = 34;
+            this.txtMissionNotes.TextChanged += new System.EventHandler(this.txtMissionNotes_TextChanged);
             // 
             // label7
             // 
@@ -365,7 +356,6 @@
             this.Controls.Add(this.lstNpcs);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.lblStatInfo);
             this.Controls.Add(this.lblMissionName);
             this.Controls.Add(this.btnCopyToClipboard);
@@ -391,7 +381,6 @@
 
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblStatInfo;
         private System.Windows.Forms.Label lblMissionName;
         private System.Windows.Forms.Button btnCopyToClipboard;
