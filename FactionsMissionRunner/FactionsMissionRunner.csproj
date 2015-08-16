@@ -51,11 +51,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Core\Hijink.cs" />
+    <Compile Include="Core\Mission.cs" />
     <Compile Include="Core\MissionStatus.cs" />
     <Compile Include="Core\Npc.cs" />
     <Compile Include="Core\NpcStat.cs" />
     <Compile Include="Core\PartyHijink.cs" />
     <Compile Include="Core\PlayerHijink.cs" />
+    <Compile Include="Core\MissionStat.cs" />
     <Compile Include="Core\Stat.cs" />
     <Compile Include="Core\ThreadSafeRandom.cs" />
     <Compile Include="Files\MissionStatusEdit.cs">
@@ -100,6 +102,7 @@
     <Compile Include="FormAddStat.Designer.cs">
       <DependentUpon>FormAddStat.cs</DependentUpon>
     </Compile>
+    <Compile Include="Loader\MissionLoader.cs" />
     <Compile Include="Loader\MissionStatusLoader.cs" />
     <Compile Include="Loader\NpcLoader.cs" />
     <Compile Include="Loader\PartyHijinkLoader.cs" />
@@ -138,6 +141,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="Files\Mission.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Files\MissionStatus.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

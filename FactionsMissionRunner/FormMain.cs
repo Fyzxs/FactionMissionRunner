@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
@@ -28,6 +29,7 @@ namespace FactionsMissionRunner
         {
             lstDefaultStats.DataSource = StatLoader.Get();
             lstNpcs.DataSource = NpcLoader.Get();
+            lstMissions.DataSource = MissionLoader.Get();
         }
 
 
@@ -84,7 +86,54 @@ namespace FactionsMissionRunner
 
             txtForumCode.Text = forumPost;
 
+            UpdateMissionObject();
+
             //log.Flush();
+        }
+
+        private readonly object missionUpdateLock = new object();
+        private bool blockMissionUpdate = false;
+        private void UpdateMissionObject()
+        {
+            lock (missionUpdateLock)
+            {
+                if (blockMissionUpdate) return;
+
+                var mission = lstMissions.SelectedItem as Mission;
+                if (mission == null)
+                {
+                    return;
+                }
+
+                var refresh = mission.Name != txtMissionName.Text ||
+                              mission.PartyLevel != (int) nudMedianPartyLevel.Value;
+                mission.Name = txtMissionName.Text;
+                mission.PartyLevel = (int) nudMedianPartyLevel.Value;
+                mission.Notes = txtMissionNotes.Text;
+                mission.AdditionalSuccessMod = (int) nudAdditionalSuccessMod.Value;
+                mission.Stats.Clear();
+                foreach (Stat stat in lstDefaultStats.Items)
+                {
+                    mission.Stats.Add(new MissionStat()
+                    {
+                        Actual = stat.Actual,
+                        Known = stat.Known,
+                        Party = stat.Party,
+                        StatName = stat.StatName
+                    });
+                }
+
+                foreach (Npc npc in lstNpcs.CheckedItems)
+                {
+                    mission.SelectedNpcs.Add(npc);
+                }
+
+                if (refresh)
+                {
+                    lstMissions.DataSource = null;
+                    lstMissions.DataSource = MissionLoader.Get();
+                }
+            }
         }
 
         private void btnCopyToClipboard_Click(object sender, EventArgs e)
@@ -289,6 +338,117 @@ namespace FactionsMissionRunner
         }
 
         private void txtMissionNotes_TextChanged(object sender, EventArgs e)
+        {
+            UpdateForumCode();
+        }
+
+        private void lstMissions_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var mission = lstMissions.SelectedItem as Mission;
+            if (mission == null)
+            {
+                return;
+            }
+
+            lock (missionUpdateLock)
+            {
+                blockMissionUpdate = true;
+
+                txtMissionName.Text = mission.Name;
+                txtMissionNotes.Text = mission.Notes;
+                nudMedianPartyLevel.Value = mission.PartyLevel;
+                nudAdditionalSuccessMod.Value = mission.AdditionalSuccessMod;
+
+
+                foreach (var stat in StatLoader.Get())
+                {
+                    stat.Actual = 0;
+                    stat.Known = 0;
+                    stat.Party = 0;
+                }
+                lstDefaultStats.DataSource = null;
+                lstDefaultStats.DataSource = StatLoader.Get();
+                lstDefaultStats.DisplayMember = "DisplayText";
+                foreach (var missionStat in mission.Stats)
+                {
+                    foreach (
+                        var lstStat in
+                            lstDefaultStats.Items.Cast<Stat>()
+                                .Where(lstStat => lstStat.StatName == missionStat.StatName))
+                    {
+                        lstStat.Actual = missionStat.Actual;
+                        lstStat.Known = missionStat.Known;
+                        lstStat.Party = missionStat.Party;
+                    }
+                }
+
+                //NPCs
+                lstNpcs.DataSource = null;
+                lstNpcs.DataSource = NpcLoader.Get();
+
+                // ReSharper disable once ForCanBeConvertedToForeach
+                for (var npcIndex = 0; npcIndex < mission.SelectedNpcs.Count; npcIndex++)
+                {
+                    var missionNpc = mission.SelectedNpcs[npcIndex];
+                    for (var i = 0; i < lstNpcs.Items.Count; i++)
+                    {
+                        var npc = lstNpcs.Items[i] as Npc;
+                        if (npc == null)
+                        {
+                            continue;
+                        }
+                        if (npc.Name == missionNpc.Name)
+                        {
+                            lstNpcs.SetItemChecked(i, true);
+                        }
+                    }
+                }
+
+                lstDefaultStats.DisplayMember = "";
+                lstDefaultStats.DisplayMember = "DisplayText";
+                UpdateForumCode();
+                blockMissionUpdate = false;
+            }
+        }
+
+        private void btnSaveMission_Click(object sender, EventArgs e)
+        {
+            UpdateMissionObject();
+            MissionLoader.SaveToFile();
+        }
+
+
+
+        private void btnNewMission_Click(object sender, EventArgs e)
+        {
+            var mission = new Mission() {Name = "NEW MISSION", PartyLevel = 1};
+            MissionLoader.Add(mission);
+            lstMissions.DataSource = null;
+            lstMissions.DataSource = MissionLoader.Get();
+        }
+
+        private void lstNpcs_ItemCheck(object sender, ItemCheckEventArgs e)
+        {
+            var npc = lstNpcs.Items[e.Index] as Npc;
+
+            var mission = lstMissions.SelectedItem as Mission;
+            if (mission == null || npc == null) return;
+
+            if (e.NewValue == CheckState.Checked)
+            {
+                mission.SelectedNpcs.Add(npc);
+            }
+            else
+            {
+                foreach (var mNpc in mission.SelectedNpcs.Where(mNpc => mNpc.Name == npc.Name))
+                {
+                    mission.SelectedNpcs.Remove(mNpc);
+                    break;
+                }
+            }
+        }
+
+        private void nudMedianPartyLevel_ValueChanged(object sender, EventArgs e)
         {
             UpdateForumCode();
         }

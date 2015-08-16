@@ -44,8 +44,6 @@
             this.btnResolveMission = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.nudMedianPartyLevel = new System.Windows.Forms.NumericUpDown();
-            this.label5 = new System.Windows.Forms.Label();
-            this.nudAdditionalSuccessMod = new System.Windows.Forms.NumericUpDown();
             this.lstStatResults = new System.Windows.Forms.CheckedListBox();
             this.label6 = new System.Windows.Forms.Label();
             this.txtMissionNotes = new System.Windows.Forms.TextBox();
@@ -57,9 +55,16 @@
             this.partyHijinksToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.playerHijinksToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.missionStatusToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lstMissions = new System.Windows.Forms.ListBox();
+            this.btnSaveMission = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.nudAdditionalSuccessMod = new System.Windows.Forms.NumericUpDown();
+            this.label5 = new System.Windows.Forms.Label();
+            this.btnNewMission = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.nudMedianPartyLevel)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudAdditionalSuccessMod)).BeginInit();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudAdditionalSuccessMod)).BeginInit();
             this.SuspendLayout();
             // 
             // label3
@@ -114,7 +119,7 @@
             this.lstDefaultStats.FormattingEnabled = true;
             this.lstDefaultStats.Location = new System.Drawing.Point(15, 102);
             this.lstDefaultStats.Name = "lstDefaultStats";
-            this.lstDefaultStats.Size = new System.Drawing.Size(299, 511);
+            this.lstDefaultStats.Size = new System.Drawing.Size(299, 394);
             this.lstDefaultStats.TabIndex = 12;
             this.lstDefaultStats.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lstDefaultStats_MouseDoubleClick);
             // 
@@ -149,8 +154,9 @@
             this.lstNpcs.FormattingEnabled = true;
             this.lstNpcs.Location = new System.Drawing.Point(320, 102);
             this.lstNpcs.Name = "lstNpcs";
-            this.lstNpcs.Size = new System.Drawing.Size(249, 514);
+            this.lstNpcs.Size = new System.Drawing.Size(249, 394);
             this.lstNpcs.TabIndex = 22;
+            this.lstNpcs.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.lstNpcs_ItemCheck);
             // 
             // lblNpcs
             // 
@@ -220,27 +226,7 @@
             0,
             0,
             0});
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(800, 206);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(140, 13);
-            this.label5.TabIndex = 30;
-            this.label5.Text = "Additional Success Modifier:";
-            // 
-            // nudAdditionalSuccessMod
-            // 
-            this.nudAdditionalSuccessMod.Location = new System.Drawing.Point(957, 202);
-            this.nudAdditionalSuccessMod.Maximum = new decimal(new int[] {
-            99,
-            0,
-            0,
-            0});
-            this.nudAdditionalSuccessMod.Name = "nudAdditionalSuccessMod";
-            this.nudAdditionalSuccessMod.Size = new System.Drawing.Size(36, 20);
-            this.nudAdditionalSuccessMod.TabIndex = 31;
+            this.nudMedianPartyLevel.ValueChanged += new System.EventHandler(this.nudMedianPartyLevel_ValueChanged);
             // 
             // lstStatResults
             // 
@@ -336,17 +322,91 @@
             this.missionStatusToolStripMenuItem.Text = "Mission Status";
             this.missionStatusToolStripMenuItem.Click += new System.EventHandler(this.missionStatusToolStripMenuItem_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 514);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(230, 13);
+            this.label1.TabIndex = 37;
+            this.label1.Text = "Missions To Load: (Shut up I\'m just stuffing it in)";
+            // 
+            // lstMissions
+            // 
+            this.lstMissions.DisplayMember = "DisplayText";
+            this.lstMissions.FormattingEnabled = true;
+            this.lstMissions.Location = new System.Drawing.Point(15, 530);
+            this.lstMissions.Name = "lstMissions";
+            this.lstMissions.Size = new System.Drawing.Size(299, 238);
+            this.lstMissions.TabIndex = 38;
+            this.lstMissions.SelectedIndexChanged += new System.EventHandler(this.lstMissions_SelectedIndexChanged);
+            // 
+            // btnSaveMission
+            // 
+            this.btnSaveMission.Location = new System.Drawing.Point(320, 530);
+            this.btnSaveMission.Name = "btnSaveMission";
+            this.btnSaveMission.Size = new System.Drawing.Size(75, 36);
+            this.btnSaveMission.TabIndex = 39;
+            this.btnSaveMission.Text = "Save All Missions";
+            this.btnSaveMission.UseVisualStyleBackColor = true;
+            this.btnSaveMission.Click += new System.EventHandler(this.btnSaveMission_Click);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(320, 569);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(214, 13);
+            this.label8.TabIndex = 40;
+            this.label8.Text = "NOTE: The \"Mission Name\" is the identifier.";
+            // 
+            // nudAdditionalSuccessMod
+            // 
+            this.nudAdditionalSuccessMod.Location = new System.Drawing.Point(477, 51);
+            this.nudAdditionalSuccessMod.Maximum = new decimal(new int[] {
+            99,
+            0,
+            0,
+            0});
+            this.nudAdditionalSuccessMod.Name = "nudAdditionalSuccessMod";
+            this.nudAdditionalSuccessMod.Size = new System.Drawing.Size(36, 20);
+            this.nudAdditionalSuccessMod.TabIndex = 42;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(320, 55);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(140, 13);
+            this.label5.TabIndex = 41;
+            this.label5.Text = "Additional Success Modifier:";
+            // 
+            // btnNewMission
+            // 
+            this.btnNewMission.Location = new System.Drawing.Point(401, 530);
+            this.btnNewMission.Name = "btnNewMission";
+            this.btnNewMission.Size = new System.Drawing.Size(75, 36);
+            this.btnNewMission.TabIndex = 43;
+            this.btnNewMission.Text = "New Mission";
+            this.btnNewMission.UseVisualStyleBackColor = true;
+            this.btnNewMission.Click += new System.EventHandler(this.btnNewMission_Click);
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1022, 778);
+            this.Controls.Add(this.btnNewMission);
+            this.Controls.Add(this.nudAdditionalSuccessMod);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.btnSaveMission);
+            this.Controls.Add(this.lstMissions);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.txtMissionNotes);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.lstStatResults);
-            this.Controls.Add(this.nudAdditionalSuccessMod);
-            this.Controls.Add(this.label5);
             this.Controls.Add(this.nudMedianPartyLevel);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btnResolveMission);
@@ -369,9 +429,9 @@
             this.Text = "FACTION MISSION RUNNER";
             this.Load += new System.EventHandler(this.FrmMain_Load);
             ((System.ComponentModel.ISupportInitialize)(this.nudMedianPartyLevel)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudAdditionalSuccessMod)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudAdditionalSuccessMod)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -395,8 +455,6 @@
         private System.Windows.Forms.Button btnResolveMission;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.NumericUpDown nudMedianPartyLevel;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.NumericUpDown nudAdditionalSuccessMod;
         private System.Windows.Forms.CheckedListBox lstStatResults;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtMissionNotes;
@@ -408,6 +466,13 @@
         private System.Windows.Forms.ToolStripMenuItem partyHijinksToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem playerHijinksToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem missionStatusToolStripMenuItem;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ListBox lstMissions;
+        private System.Windows.Forms.Button btnSaveMission;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.NumericUpDown nudAdditionalSuccessMod;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button btnNewMission;
     }
 }
 

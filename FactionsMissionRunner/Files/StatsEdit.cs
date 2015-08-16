@@ -23,6 +23,7 @@ namespace FactionsMissionRunner.Files
         {
             if (lstItems.SelectedItem == null) return;
             txtString.Text = ((Stat) lstItems.SelectedItem).StatName;
+            txtFailureFlavor.Text = string.Join(Environment.NewLine, ((Stat)lstItems.SelectedItem).FailureFlavors.Select(x => x.ToString()).ToArray());
         }
         
         private void StatsEdit_Load(object sender, EventArgs e)
@@ -60,5 +61,10 @@ namespace FactionsMissionRunner.Files
             RefreshList();
         }
 
+        private void txtFailureFlavor_TextChanged(object sender, EventArgs e)
+        {
+            if (lstItems.SelectedItem == null) return;
+            ((Stat)lstItems.SelectedItem).FailureFlavors = txtFailureFlavor.Text.Split(new [] { Environment.NewLine }, StringSplitOptions.None).ToList();
+        }
     }
 }

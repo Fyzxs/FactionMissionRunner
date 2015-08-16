@@ -28,13 +28,13 @@ namespace FactionsMissionRunner.Loader
             Hijinks.AddRange(JsonConvert.DeserializeObject<List<PlayerHijink>>(File.ReadAllText(FileName)));
         }
 
-        public static void Add(PlayerHijink PlayerHijink)
+        public static void Add(PlayerHijink item)
         {
-            Hijinks.Add(PlayerHijink);
+            Hijinks.Add(item);
         }
-        internal static void Remove(PlayerHijink PlayerHijink)
+        internal static void Remove(PlayerHijink item)
         {
-            Hijinks.Remove(PlayerHijink);
+            Hijinks.Remove(item);
         }
 
         internal static void Refresh()

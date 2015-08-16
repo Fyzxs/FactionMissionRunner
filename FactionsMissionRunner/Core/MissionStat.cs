@@ -8,20 +8,11 @@ using Newtonsoft.Json;
 
 namespace FactionsMissionRunner.Core
 {
-    internal class Stat
+    internal class MissionStat
     {
         public string StatName { get; set; }
-
-        public List<string> FailureFlavors { get; set; } = new List<string>();
-
-        [JsonIgnore]
         public int Known { get; set; }
-        [JsonIgnore]
         public int Actual { get; set; }
-        [JsonIgnore]
         public int Party { get; set; }
-        
-        [JsonIgnore]
-        public string DisplayText => $"{StatName} - K=[ {Known} ] A=[ {Actual} ] P=[ {Party} ]";
     }
 }
