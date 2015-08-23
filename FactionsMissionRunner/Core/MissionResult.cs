@@ -6,13 +6,9 @@ using System.Threading.Tasks;
 
 namespace FactionsMissionRunner.Core
 {
-    class PartyHijink
+    class MissionResult
     {
-        public string HijinkString { get; set; }
-
-        public override string ToString()
-        {
-            return HijinkString;
-        }
+        public string Name { get; set; }
+        public List<string> Values { get; set; } = new List<string>();
     }
 }

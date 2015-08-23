@@ -1,6 +1,6 @@
 ﻿namespace FactionsMissionRunner.Files
 {
-    partial class PartyHijinksEdit
+    partial class MissionResultsEdit
     {
         /// <summary>
         /// Required designer variable.
@@ -28,25 +28,29 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lstHijinks = new System.Windows.Forms.ListBox();
+            this.lstItems = new System.Windows.Forms.ListBox();
             this.txtString = new System.Windows.Forms.TextBox();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnNew = new System.Windows.Forms.Button();
+            this.txtFailureFlavor = new System.Windows.Forms.TextBox();
+            this.lblFailureFlavor = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // lstHijinks
+            // lstItems
             // 
-            this.lstHijinks.FormattingEnabled = true;
-            this.lstHijinks.Location = new System.Drawing.Point(-2, 12);
-            this.lstHijinks.Name = "lstHijinks";
-            this.lstHijinks.Size = new System.Drawing.Size(185, 251);
-            this.lstHijinks.TabIndex = 0;
-            this.lstHijinks.SelectedIndexChanged += new System.EventHandler(this.lstHijinks_SelectedIndexChanged);
+            this.lstItems.DisplayMember = "StatName";
+            this.lstItems.FormattingEnabled = true;
+            this.lstItems.Location = new System.Drawing.Point(12, 12);
+            this.lstItems.Name = "lstItems";
+            this.lstItems.Size = new System.Drawing.Size(185, 251);
+            this.lstItems.TabIndex = 0;
+            this.lstItems.SelectedIndexChanged += new System.EventHandler(this.lstHijinks_SelectedIndexChanged);
             // 
             // txtString
             // 
-            this.txtString.Location = new System.Drawing.Point(189, 12);
+            this.txtString.Location = new System.Drawing.Point(203, 12);
             this.txtString.Name = "txtString";
             this.txtString.Size = new System.Drawing.Size(245, 20);
             this.txtString.TabIndex = 1;
@@ -54,7 +58,7 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(189, 78);
+            this.btnDelete.Location = new System.Drawing.Point(203, 203);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 23);
             this.btnDelete.TabIndex = 9;
@@ -64,7 +68,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(189, 138);
+            this.btnSave.Location = new System.Drawing.Point(203, 240);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 8;
@@ -74,7 +78,7 @@
             // 
             // btnNew
             // 
-            this.btnNew.Location = new System.Drawing.Point(189, 49);
+            this.btnNew.Location = new System.Drawing.Point(203, 174);
             this.btnNew.Name = "btnNew";
             this.btnNew.Size = new System.Drawing.Size(75, 23);
             this.btnNew.TabIndex = 7;
@@ -82,21 +86,51 @@
             this.btnNew.UseVisualStyleBackColor = true;
             this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
             // 
-            // PartyHijinksEdit
+            // txtFailureFlavor
+            // 
+            this.txtFailureFlavor.Location = new System.Drawing.Point(299, 38);
+            this.txtFailureFlavor.Multiline = true;
+            this.txtFailureFlavor.Name = "txtFailureFlavor";
+            this.txtFailureFlavor.Size = new System.Drawing.Size(142, 225);
+            this.txtFailureFlavor.TabIndex = 10;
+            this.txtFailureFlavor.TextChanged += new System.EventHandler(this.txtFailureFlavor_TextChanged);
+            // 
+            // lblFailureFlavor
+            // 
+            this.lblFailureFlavor.AutoSize = true;
+            this.lblFailureFlavor.Location = new System.Drawing.Point(223, 38);
+            this.lblFailureFlavor.Name = "lblFailureFlavor";
+            this.lblFailureFlavor.Size = new System.Drawing.Size(42, 13);
+            this.lblFailureFlavor.TabIndex = 11;
+            this.lblFailureFlavor.Text = "Results";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(231, 51);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(62, 13);
+            this.label1.TabIndex = 12;
+            this.label1.Text = "one per line";
+            // 
+            // MissionResultsEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(439, 283);
+            this.ClientSize = new System.Drawing.Size(494, 283);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblFailureFlavor);
+            this.Controls.Add(this.txtFailureFlavor);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnNew);
             this.Controls.Add(this.txtString);
-            this.Controls.Add(this.lstHijinks);
+            this.Controls.Add(this.lstItems);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Name = "PartyHijinksEdit";
+            this.Name = "MissionResultsEdit";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "PartyHijinksEdit";
-            this.Load += new System.EventHandler(this.PartyHijinksEdit_Load);
+            this.Text = "Mission Results Edit";
+            this.Load += new System.EventHandler(this.StatsEdit_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -104,10 +138,13 @@
 
         #endregion
 
-        private System.Windows.Forms.ListBox lstHijinks;
+        private System.Windows.Forms.ListBox lstItems;
         private System.Windows.Forms.TextBox txtString;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnNew;
+        private System.Windows.Forms.TextBox txtFailureFlavor;
+        private System.Windows.Forms.Label lblFailureFlavor;
+        private System.Windows.Forms.Label label1;
     }
 }

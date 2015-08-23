@@ -52,7 +52,7 @@
             this.mniEditors = new System.Windows.Forms.ToolStripMenuItem();
             this.missionStatsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nPCsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.partyHijinksToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.missionResultsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.playerHijinksToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.missionStatusToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
@@ -62,6 +62,7 @@
             this.nudAdditionalSuccessMod = new System.Windows.Forms.NumericUpDown();
             this.label5 = new System.Windows.Forms.Label();
             this.btnNewMission = new System.Windows.Forms.Button();
+            this.btnDeleteMission = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.nudMedianPartyLevel)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudAdditionalSuccessMod)).BeginInit();
@@ -120,6 +121,7 @@
             this.lstDefaultStats.Location = new System.Drawing.Point(15, 102);
             this.lstDefaultStats.Name = "lstDefaultStats";
             this.lstDefaultStats.Size = new System.Drawing.Size(299, 394);
+            this.lstDefaultStats.Sorted = true;
             this.lstDefaultStats.TabIndex = 12;
             this.lstDefaultStats.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lstDefaultStats_MouseDoubleClick);
             // 
@@ -155,6 +157,7 @@
             this.lstNpcs.Location = new System.Drawing.Point(320, 102);
             this.lstNpcs.Name = "lstNpcs";
             this.lstNpcs.Size = new System.Drawing.Size(249, 394);
+            this.lstNpcs.Sorted = true;
             this.lstNpcs.TabIndex = 22;
             this.lstNpcs.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.lstNpcs_ItemCheck);
             // 
@@ -235,6 +238,7 @@
             this.lstStatResults.Location = new System.Drawing.Point(575, 251);
             this.lstStatResults.Name = "lstStatResults";
             this.lstStatResults.Size = new System.Drawing.Size(222, 364);
+            this.lstStatResults.Sorted = true;
             this.lstStatResults.TabIndex = 32;
             // 
             // label6
@@ -280,7 +284,7 @@
             this.mniEditors.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.missionStatsToolStripMenuItem,
             this.nPCsToolStripMenuItem,
-            this.partyHijinksToolStripMenuItem,
+            this.missionResultsToolStripMenuItem,
             this.playerHijinksToolStripMenuItem,
             this.missionStatusToolStripMenuItem});
             this.mniEditors.Name = "mniEditors";
@@ -290,35 +294,35 @@
             // missionStatsToolStripMenuItem
             // 
             this.missionStatsToolStripMenuItem.Name = "missionStatsToolStripMenuItem";
-            this.missionStatsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.missionStatsToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
             this.missionStatsToolStripMenuItem.Text = "Stats";
             this.missionStatsToolStripMenuItem.Click += new System.EventHandler(this.missionStatsToolStripMenuItem_Click);
             // 
             // nPCsToolStripMenuItem
             // 
             this.nPCsToolStripMenuItem.Name = "nPCsToolStripMenuItem";
-            this.nPCsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.nPCsToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
             this.nPCsToolStripMenuItem.Text = "NPCs";
             this.nPCsToolStripMenuItem.Click += new System.EventHandler(this.nPCsToolStripMenuItem_Click);
             // 
-            // partyHijinksToolStripMenuItem
+            // missionResultsToolStripMenuItem
             // 
-            this.partyHijinksToolStripMenuItem.Name = "partyHijinksToolStripMenuItem";
-            this.partyHijinksToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.partyHijinksToolStripMenuItem.Text = "Party Hijinks";
-            this.partyHijinksToolStripMenuItem.Click += new System.EventHandler(this.partyHijinksToolStripMenuItem_Click);
+            this.missionResultsToolStripMenuItem.Name = "missionResultsToolStripMenuItem";
+            this.missionResultsToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.missionResultsToolStripMenuItem.Text = "Mission Results";
+            this.missionResultsToolStripMenuItem.Click += new System.EventHandler(this.missionResultsToolStripMenuItem_Click);
             // 
             // playerHijinksToolStripMenuItem
             // 
             this.playerHijinksToolStripMenuItem.Name = "playerHijinksToolStripMenuItem";
-            this.playerHijinksToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.playerHijinksToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
             this.playerHijinksToolStripMenuItem.Text = "Player Hijinks";
             this.playerHijinksToolStripMenuItem.Click += new System.EventHandler(this.playerHijinksToolStripMenuItem_Click);
             // 
             // missionStatusToolStripMenuItem
             // 
             this.missionStatusToolStripMenuItem.Name = "missionStatusToolStripMenuItem";
-            this.missionStatusToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.missionStatusToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
             this.missionStatusToolStripMenuItem.Text = "Mission Status";
             this.missionStatusToolStripMenuItem.Click += new System.EventHandler(this.missionStatusToolStripMenuItem_Click);
             // 
@@ -338,6 +342,7 @@
             this.lstMissions.Location = new System.Drawing.Point(15, 530);
             this.lstMissions.Name = "lstMissions";
             this.lstMissions.Size = new System.Drawing.Size(299, 238);
+            this.lstMissions.Sorted = true;
             this.lstMissions.TabIndex = 38;
             this.lstMissions.SelectedIndexChanged += new System.EventHandler(this.lstMissions_SelectedIndexChanged);
             // 
@@ -391,11 +396,22 @@
             this.btnNewMission.UseVisualStyleBackColor = true;
             this.btnNewMission.Click += new System.EventHandler(this.btnNewMission_Click);
             // 
+            // btnDeleteMission
+            // 
+            this.btnDeleteMission.Location = new System.Drawing.Point(323, 599);
+            this.btnDeleteMission.Name = "btnDeleteMission";
+            this.btnDeleteMission.Size = new System.Drawing.Size(75, 36);
+            this.btnDeleteMission.TabIndex = 44;
+            this.btnDeleteMission.Text = "Delete Mission";
+            this.btnDeleteMission.UseVisualStyleBackColor = true;
+            this.btnDeleteMission.Click += new System.EventHandler(this.btnDeleteMission_Click);
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1022, 778);
+            this.ClientSize = new System.Drawing.Size(1022, 741);
+            this.Controls.Add(this.btnDeleteMission);
             this.Controls.Add(this.btnNewMission);
             this.Controls.Add(this.nudAdditionalSuccessMod);
             this.Controls.Add(this.label5);
@@ -463,7 +479,7 @@
         private System.Windows.Forms.ToolStripMenuItem mniEditors;
         private System.Windows.Forms.ToolStripMenuItem missionStatsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem nPCsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem partyHijinksToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem missionResultsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem playerHijinksToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem missionStatusToolStripMenuItem;
         private System.Windows.Forms.Label label1;
@@ -473,6 +489,7 @@
         private System.Windows.Forms.NumericUpDown nudAdditionalSuccessMod;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnNewMission;
+        private System.Windows.Forms.Button btnDeleteMission;
     }
 }
 

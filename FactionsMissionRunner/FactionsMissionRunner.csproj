@@ -52,44 +52,45 @@
   <ItemGroup>
     <Compile Include="Core\Hijink.cs" />
     <Compile Include="Core\Mission.cs" />
+    <Compile Include="Core\MissionResult.cs" />
     <Compile Include="Core\MissionStatus.cs" />
     <Compile Include="Core\Npc.cs" />
     <Compile Include="Core\NpcStat.cs" />
-    <Compile Include="Core\PartyHijink.cs" />
     <Compile Include="Core\PlayerHijink.cs" />
     <Compile Include="Core\MissionStat.cs" />
     <Compile Include="Core\Stat.cs" />
     <Compile Include="Core\ThreadSafeRandom.cs" />
-    <Compile Include="Files\MissionStatusEdit.cs">
+    <Compile Include="Editors\MissionStatusEdit.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Files\MissionStatusEdit.Designer.cs">
+    <Compile Include="Editors\MissionStatusEdit.Designer.cs">
       <DependentUpon>MissionStatusEdit.cs</DependentUpon>
     </Compile>
-    <Compile Include="Files\NpcEdit.cs">
+    <Compile Include="Editors\NpcEdit.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Files\NpcEdit.Designer.cs">
+    <Compile Include="Editors\NpcEdit.Designer.cs">
       <DependentUpon>NpcEdit.cs</DependentUpon>
     </Compile>
-    <Compile Include="Files\StatsEdit.cs">
+    <Compile Include="Editors\MissionResultsEdit.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Files\StatsEdit.Designer.cs">
+    <Compile Include="Editors\MissionResultsEdit.Designer.cs">
+      <DependentUpon>MissionResultsEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editors\StatsEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Editors\StatsEdit.Designer.cs">
       <DependentUpon>StatsEdit.cs</DependentUpon>
     </Compile>
-    <Compile Include="Files\PlayerHijinksEdit.cs">
+    <Compile Include="Editors\PlayerHijinksEdit.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Files\PlayerHijinksEdit.Designer.cs">
+    <Compile Include="Editors\PlayerHijinksEdit.Designer.cs">
       <DependentUpon>PlayerHijinksEdit.cs</DependentUpon>
     </Compile>
-    <Compile Include="Files\PartyHijinksEdit.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Files\PartyHijinksEdit.Designer.cs">
-      <DependentUpon>PartyHijinksEdit.cs</DependentUpon>
-    </Compile>
+    <Compile Include="Loader\MissionResultLoader.cs" />
     <Compile Include="FormMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -105,26 +106,25 @@
     <Compile Include="Loader\MissionLoader.cs" />
     <Compile Include="Loader\MissionStatusLoader.cs" />
     <Compile Include="Loader\NpcLoader.cs" />
-    <Compile Include="Loader\PartyHijinkLoader.cs" />
     <Compile Include="Loader\PlayerHijinkLoader.cs" />
     <Compile Include="Loader\StatLoader.cs" />
     <Compile Include="Loader\TreasureLoader.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Files\MissionStatusEdit.resx">
+    <EmbeddedResource Include="Editors\MissionStatusEdit.resx">
       <DependentUpon>MissionStatusEdit.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Files\NpcEdit.resx">
+    <EmbeddedResource Include="Editors\NpcEdit.resx">
       <DependentUpon>NpcEdit.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Files\StatsEdit.resx">
+    <EmbeddedResource Include="Editors\MissionResultsEdit.resx">
+      <DependentUpon>MissionResultsEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editors\StatsEdit.resx">
       <DependentUpon>StatsEdit.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Files\PlayerHijinksEdit.resx">
+    <EmbeddedResource Include="Editors\PlayerHijinksEdit.resx">
       <DependentUpon>PlayerHijinksEdit.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Files\PartyHiJinksEdit.resx">
-      <DependentUpon>PartyHijinksEdit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
@@ -144,13 +144,13 @@
     <None Include="Files\Mission.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="Files\MissionResult.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Files\MissionStatus.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="Files\PlayerHijinks.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Files\PartyHijinks.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="Files\NPCs.json">

@@ -156,8 +156,6 @@ namespace FactionsMissionRunner
 
             forumPost += "\r\nMission Status: " + CalculateMissionStatus();
             
-            forumPost += GetPartyHijinks();
-
             forumPost += GetPlayerHijinks();
 
             forumPost += "\r\n[/quote]";
@@ -190,27 +188,7 @@ namespace FactionsMissionRunner
 
             return forumPost;
         }
-
-        private static string GetPartyHijinks()
-        {
-            var forumPost = "\r\nParty Happening[list]";
-            var partyHijinks = Rand.Next(0, 5);
-            var selected = new List<int>();
-            for (var i = 0; i < partyHijinks; i++)
-            {
-                var x = Rand.Next(0, PartyHijinkLoader.Get().Count);
-                if (selected.Contains(x))
-                {
-                    continue;
-                }
-                selected.Add(x);
-                forumPost += "\r\n[*]" + PartyHijinkLoader.Get()[x];
-            }
-            forumPost += "\r\n[/list]";
-
-            return forumPost;
-        }
-
+        
         private string CalculateMissionStatus()
         {
             log.WriteLine("CalculateMissionStatus");
@@ -313,11 +291,6 @@ namespace FactionsMissionRunner
             lstDefaultStats.DataSource = null;
             lstDefaultStats.DataSource = StatLoader.Get();
             lstDefaultStats.DisplayMember = "DisplayText";
-        }
-
-        private void partyHijinksToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            new PartyHijinksEdit().ShowDialog(this);
         }
 
         private void playerHijinksToolStripMenuItem_Click(object sender, EventArgs e)
@@ -425,6 +398,7 @@ namespace FactionsMissionRunner
             MissionLoader.Add(mission);
             lstMissions.DataSource = null;
             lstMissions.DataSource = MissionLoader.Get();
+            
         }
 
         private void lstNpcs_ItemCheck(object sender, ItemCheckEventArgs e)
@@ -451,6 +425,19 @@ namespace FactionsMissionRunner
         private void nudMedianPartyLevel_ValueChanged(object sender, EventArgs e)
         {
             UpdateForumCode();
+        }
+
+        private void btnDeleteMission_Click(object sender, EventArgs e)
+        {
+            MissionLoader.Remove((Mission)lstMissions.SelectedItem);
+            lstMissions.DataSource = null;
+            lstMissions.DataSource = MissionLoader.Get();
+        }
+
+        private void missionResultsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            new MissionResultsEdit().ShowDialog(this);
         }
     }
 }

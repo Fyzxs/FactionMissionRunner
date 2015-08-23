@@ -35,3 +35,26 @@ C:\Users\Quinn Gil\Documents\GitHub\FactionMissionRunner\FactionsMissionRunner\o
 C:\Users\Quinn Gil\Documents\GitHub\FactionMissionRunner\FactionsMissionRunner\obj\Debug\FactionsMissionRunner.Files.PlayerHijinksEdit.resources
 C:\Users\Quinn Gil\Documents\GitHub\FactionMissionRunner\FactionsMissionRunner\obj\Debug\FactionsMissionRunner.Files.StatsEdit.resources
 C:\Users\Quinn Gil\Documents\GitHub\FactionMissionRunner\FactionsMissionRunner\obj\Debug\FactionsMissionRunner.Files.NpcEdit.resources
+C:\Users\quinn\Documents\GitHub\FactionMission\FactionMissionRunner\FactionsMissionRunner\bin\Debug\FactionsMissionRunner.exe.config
+C:\Users\quinn\Documents\GitHub\FactionMission\FactionMissionRunner\FactionsMissionRunner\obj\Debug\FactionsMissionRunner.exe
+C:\Users\quinn\Documents\GitHub\FactionMission\FactionMissionRunner\FactionsMissionRunner\obj\Debug\FactionsMissionRunner.pdb
+C:\Users\quinn\Documents\GitHub\FactionMission\FactionMissionRunner\FactionsMissionRunner\bin\Debug\Files\Mission.json
+C:\Users\quinn\Documents\GitHub\FactionMission\FactionMissionRunner\FactionsMissionRunner\bin\Debug\Files\MissionStatus.json
+C:\Users\quinn\Documents\GitHub\FactionMission\FactionMissionRunner\FactionsMissionRunner\bin\Debug\Files\PlayerHijinks.json
+C:\Users\quinn\Documents\GitHub\FactionMission\FactionMissionRunner\FactionsMissionRunner\bin\Debug\Files\NPCs.json
+C:\Users\quinn\Documents\GitHub\FactionMission\FactionMissionRunner\FactionsMissionRunner\bin\Debug\Files\Stats.json
+C:\Users\quinn\Documents\GitHub\FactionMission\FactionMissionRunner\FactionsMissionRunner\bin\Debug\FactionsMissionRunner.exe
+C:\Users\quinn\Documents\GitHub\FactionMission\FactionMissionRunner\FactionsMissionRunner\bin\Debug\FactionsMissionRunner.pdb
+C:\Users\quinn\Documents\GitHub\FactionMission\FactionMissionRunner\FactionsMissionRunner\bin\Debug\Newtonsoft.Json.dll
+C:\Users\quinn\Documents\GitHub\FactionMission\FactionMissionRunner\FactionsMissionRunner\bin\Debug\Newtonsoft.Json.xml
+C:\Users\quinn\Documents\GitHub\FactionMission\FactionMissionRunner\FactionsMissionRunner\obj\Debug\FactionsMissionRunner.Files.MissionStatusEdit.resources
+C:\Users\quinn\Documents\GitHub\FactionMission\FactionMissionRunner\FactionsMissionRunner\obj\Debug\FactionsMissionRunner.Files.NpcEdit.resources
+C:\Users\quinn\Documents\GitHub\FactionMission\FactionMissionRunner\FactionsMissionRunner\obj\Debug\FactionsMissionRunner.Files.StatsEdit.resources
+C:\Users\quinn\Documents\GitHub\FactionMission\FactionMissionRunner\FactionsMissionRunner\obj\Debug\FactionsMissionRunner.Files.PlayerHijinksEdit.resources
+C:\Users\quinn\Documents\GitHub\FactionMission\FactionMissionRunner\FactionsMissionRunner\obj\Debug\FactionsMissionRunner.FrmMain.resources
+C:\Users\quinn\Documents\GitHub\FactionMission\FactionMissionRunner\FactionsMissionRunner\obj\Debug\FactionsMissionRunner.FormAddStat.resources
+C:\Users\quinn\Documents\GitHub\FactionMission\FactionMissionRunner\FactionsMissionRunner\obj\Debug\FactionsMissionRunner.Properties.Resources.resources
+C:\Users\quinn\Documents\GitHub\FactionMission\FactionMissionRunner\FactionsMissionRunner\obj\Debug\FactionsMissionRunner.csproj.GenerateResource.Cache
+C:\Users\quinn\Documents\GitHub\FactionMission\FactionMissionRunner\FactionsMissionRunner\obj\Debug\FactionsMissionRunner.csprojResolveAssemblyReference.cache
+C:\Users\quinn\Documents\GitHub\FactionMission\FactionMissionRunner\FactionsMissionRunner\obj\Debug\FactionsMissionRunner.Files.MissionResultsEdit.resources
+C:\Users\quinn\Documents\GitHub\FactionMission\FactionMissionRunner\FactionsMissionRunner\bin\Debug\Files\MissionResult.json

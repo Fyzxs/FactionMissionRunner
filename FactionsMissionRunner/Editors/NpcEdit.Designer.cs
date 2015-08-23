@@ -38,11 +38,11 @@
             this.label2 = new System.Windows.Forms.Label();
             this.nudLevel = new System.Windows.Forms.NumericUpDown();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnNpcStatNew = new System.Windows.Forms.Button();
-            this.npcStatDelete = new System.Windows.Forms.Button();
-            this.lstNpcStats = new System.Windows.Forms.ListBox();
-            this.nudNpcStatValue = new System.Windows.Forms.NumericUpDown();
             this.txtNpcStatName = new System.Windows.Forms.TextBox();
+            this.nudNpcStatValue = new System.Windows.Forms.NumericUpDown();
+            this.lstNpcStats = new System.Windows.Forms.ListBox();
+            this.npcStatDelete = new System.Windows.Forms.Button();
+            this.btnNpcStatNew = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.nudLevel)).BeginInit();
@@ -148,15 +148,30 @@
             this.panel1.Size = new System.Drawing.Size(236, 195);
             this.panel1.TabIndex = 22;
             // 
-            // btnNpcStatNew
+            // txtNpcStatName
             // 
-            this.btnNpcStatNew.Location = new System.Drawing.Point(129, 137);
-            this.btnNpcStatNew.Name = "btnNpcStatNew";
-            this.btnNpcStatNew.Size = new System.Drawing.Size(75, 23);
-            this.btnNpcStatNew.TabIndex = 20;
-            this.btnNpcStatNew.Text = "New";
-            this.btnNpcStatNew.UseVisualStyleBackColor = true;
-            this.btnNpcStatNew.Click += new System.EventHandler(this.btnNpcStatNew_Click);
+            this.txtNpcStatName.Location = new System.Drawing.Point(129, 4);
+            this.txtNpcStatName.Name = "txtNpcStatName";
+            this.txtNpcStatName.Size = new System.Drawing.Size(100, 20);
+            this.txtNpcStatName.TabIndex = 23;
+            this.txtNpcStatName.TextChanged += new System.EventHandler(this.txtNpcStatName_TextChanged);
+            // 
+            // nudNpcStatValue
+            // 
+            this.nudNpcStatValue.Location = new System.Drawing.Point(129, 30);
+            this.nudNpcStatValue.Name = "nudNpcStatValue";
+            this.nudNpcStatValue.Size = new System.Drawing.Size(72, 20);
+            this.nudNpcStatValue.TabIndex = 23;
+            this.nudNpcStatValue.ValueChanged += new System.EventHandler(this.nudNpcStatValue_ValueChanged);
+            // 
+            // lstNpcStats
+            // 
+            this.lstNpcStats.FormattingEnabled = true;
+            this.lstNpcStats.Location = new System.Drawing.Point(3, 3);
+            this.lstNpcStats.Name = "lstNpcStats";
+            this.lstNpcStats.Size = new System.Drawing.Size(120, 186);
+            this.lstNpcStats.TabIndex = 19;
+            this.lstNpcStats.SelectedIndexChanged += new System.EventHandler(this.lstNpcStats_SelectedIndexChanged);
             // 
             // npcStatDelete
             // 
@@ -168,30 +183,15 @@
             this.npcStatDelete.UseVisualStyleBackColor = true;
             this.npcStatDelete.Click += new System.EventHandler(this.npcStatDelete_Click);
             // 
-            // lstNpcStats
+            // btnNpcStatNew
             // 
-            this.lstNpcStats.FormattingEnabled = true;
-            this.lstNpcStats.Location = new System.Drawing.Point(3, 3);
-            this.lstNpcStats.Name = "lstNpcStats";
-            this.lstNpcStats.Size = new System.Drawing.Size(120, 186);
-            this.lstNpcStats.TabIndex = 19;
-            this.lstNpcStats.SelectedIndexChanged += new System.EventHandler(this.lstNpcStats_SelectedIndexChanged);
-            // 
-            // nudNpcStatValue
-            // 
-            this.nudNpcStatValue.Location = new System.Drawing.Point(129, 30);
-            this.nudNpcStatValue.Name = "nudNpcStatValue";
-            this.nudNpcStatValue.Size = new System.Drawing.Size(72, 20);
-            this.nudNpcStatValue.TabIndex = 23;
-            this.nudNpcStatValue.ValueChanged += new System.EventHandler(this.nudNpcStatValue_ValueChanged);
-            // 
-            // txtNpcStatName
-            // 
-            this.txtNpcStatName.Location = new System.Drawing.Point(129, 4);
-            this.txtNpcStatName.Name = "txtNpcStatName";
-            this.txtNpcStatName.Size = new System.Drawing.Size(100, 20);
-            this.txtNpcStatName.TabIndex = 23;
-            this.txtNpcStatName.TextChanged += new System.EventHandler(this.txtNpcStatName_TextChanged);
+            this.btnNpcStatNew.Location = new System.Drawing.Point(129, 137);
+            this.btnNpcStatNew.Name = "btnNpcStatNew";
+            this.btnNpcStatNew.Size = new System.Drawing.Size(75, 23);
+            this.btnNpcStatNew.TabIndex = 20;
+            this.btnNpcStatNew.Text = "New";
+            this.btnNpcStatNew.UseVisualStyleBackColor = true;
+            this.btnNpcStatNew.Click += new System.EventHandler(this.btnNpcStatNew_Click);
             // 
             // label3
             // 
