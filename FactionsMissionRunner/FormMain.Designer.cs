@@ -63,6 +63,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.btnNewMission = new System.Windows.Forms.Button();
             this.btnDeleteMission = new System.Windows.Forms.Button();
+            this.btnToTrello = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.nudMedianPartyLevel)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudAdditionalSuccessMod)).BeginInit();
@@ -106,11 +107,11 @@
             // 
             // btnCopyToClipboard
             // 
-            this.btnCopyToClipboard.Location = new System.Drawing.Point(918, 36);
+            this.btnCopyToClipboard.Location = new System.Drawing.Point(833, 36);
             this.btnCopyToClipboard.Name = "btnCopyToClipboard";
             this.btnCopyToClipboard.Size = new System.Drawing.Size(75, 23);
             this.btnCopyToClipboard.TabIndex = 17;
-            this.btnCopyToClipboard.Text = "To Clipboard";
+            this.btnCopyToClipboard.Text = "To Forum";
             this.btnCopyToClipboard.UseVisualStyleBackColor = true;
             this.btnCopyToClipboard.Click += new System.EventHandler(this.btnCopyToClipboard_Click);
             // 
@@ -406,11 +407,22 @@
             this.btnDeleteMission.UseVisualStyleBackColor = true;
             this.btnDeleteMission.Click += new System.EventHandler(this.btnDeleteMission_Click);
             // 
+            // btnToTrello
+            // 
+            this.btnToTrello.Location = new System.Drawing.Point(914, 36);
+            this.btnToTrello.Name = "btnToTrello";
+            this.btnToTrello.Size = new System.Drawing.Size(75, 23);
+            this.btnToTrello.TabIndex = 46;
+            this.btnToTrello.Text = "To Trello";
+            this.btnToTrello.UseVisualStyleBackColor = true;
+            this.btnToTrello.Click += new System.EventHandler(this.btnToTrello_Click);
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1022, 741);
+            this.Controls.Add(this.btnToTrello);
             this.Controls.Add(this.btnDeleteMission);
             this.Controls.Add(this.btnNewMission);
             this.Controls.Add(this.nudAdditionalSuccessMod);
@@ -490,6 +502,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnNewMission;
         private System.Windows.Forms.Button btnDeleteMission;
+        private System.Windows.Forms.Button btnToTrello;
     }
 }
 

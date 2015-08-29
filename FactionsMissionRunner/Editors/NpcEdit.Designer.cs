@@ -45,9 +45,12 @@
             this.btnNpcStatNew = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.nudExperience = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.nudLevel)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudNpcStatValue)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudExperience)).BeginInit();
             this.SuspendLayout();
             // 
             // lstItems
@@ -132,7 +135,7 @@
             0,
             0});
             this.nudLevel.Name = "nudLevel";
-            this.nudLevel.Size = new System.Drawing.Size(100, 20);
+            this.nudLevel.Size = new System.Drawing.Size(34, 20);
             this.nudLevel.TabIndex = 18;
             this.nudLevel.ValueChanged += new System.EventHandler(this.nudLevel_ValueChanged);
             // 
@@ -211,11 +214,35 @@
             this.label4.TabIndex = 24;
             this.label4.Text = "Stats";
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(220, 64);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(21, 13);
+            this.label5.TabIndex = 26;
+            this.label5.Text = "XP";
+            // 
+            // nudExperience
+            // 
+            this.nudExperience.Location = new System.Drawing.Point(247, 62);
+            this.nudExperience.Maximum = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
+            this.nudExperience.Name = "nudExperience";
+            this.nudExperience.Size = new System.Drawing.Size(59, 20);
+            this.nudExperience.TabIndex = 25;
+            this.nudExperience.ValueChanged += new System.EventHandler(this.nudExperience_ValueChanged);
+            // 
             // NpcEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(367, 428);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.nudExperience);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.panel1);
@@ -237,6 +264,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudNpcStatValue)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudExperience)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -261,5 +289,7 @@
         private System.Windows.Forms.TextBox txtNpcStatName;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.NumericUpDown nudExperience;
     }
 }

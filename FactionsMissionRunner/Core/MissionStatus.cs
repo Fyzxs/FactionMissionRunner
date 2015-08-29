@@ -13,6 +13,7 @@ namespace FactionsMissionRunner.Core
         internal int MinValue { get; set; }
         [JsonProperty(PropertyName = "Text")]
         internal string MissionStatusString { get; set; }
+        public string Color { get; set; } = "#000000";
 
         public override string ToString()
         {

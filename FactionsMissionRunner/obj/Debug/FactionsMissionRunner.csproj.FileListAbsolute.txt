@@ -19,7 +19,6 @@ C:\Users\Quinn Gil\Documents\GitHub\FactionMissionRunner\FactionsMissionRunner\o
 C:\Users\Quinn Gil\Documents\GitHub\FactionMissionRunner\FactionsMissionRunner\obj\Debug\FactionsMissionRunner.pdb
 C:\Users\Quinn Gil\Documents\GitHub\FactionMissionRunner\FactionsMissionRunner\bin\Debug\Files\MissionStatus.json
 C:\Users\Quinn Gil\Documents\GitHub\FactionMissionRunner\FactionsMissionRunner\bin\Debug\Files\PlayerHijinks.json
-C:\Users\Quinn Gil\Documents\GitHub\FactionMissionRunner\FactionsMissionRunner\bin\Debug\Files\PartyHijinks.json
 C:\Users\Quinn Gil\Documents\GitHub\FactionMissionRunner\FactionsMissionRunner\bin\Debug\Files\NPCs.json
 C:\Users\Quinn Gil\Documents\GitHub\FactionMissionRunner\FactionsMissionRunner\bin\Debug\Files\Stats.json
 C:\Users\Quinn Gil\Documents\GitHub\FactionMissionRunner\FactionsMissionRunner\bin\Debug\FactionsMissionRunner.exe
@@ -31,7 +30,6 @@ C:\Users\Quinn Gil\Documents\GitHub\FactionMissionRunner\FactionsMissionRunner\o
 C:\Users\Quinn Gil\Documents\GitHub\FactionMissionRunner\FactionsMissionRunner\obj\Debug\FactionsMissionRunner.Properties.Resources.resources
 C:\Users\Quinn Gil\Documents\GitHub\FactionMissionRunner\FactionsMissionRunner\obj\Debug\FactionsMissionRunner.csproj.GenerateResource.Cache
 C:\Users\Quinn Gil\Documents\GitHub\FactionMissionRunner\FactionsMissionRunner\obj\Debug\FactionsMissionRunner.Files.MissionStatusEdit.resources
-C:\Users\Quinn Gil\Documents\GitHub\FactionMissionRunner\FactionsMissionRunner\obj\Debug\FactionsMissionRunner.Files.PartyHijinksEdit.resources
 C:\Users\Quinn Gil\Documents\GitHub\FactionMissionRunner\FactionsMissionRunner\obj\Debug\FactionsMissionRunner.Files.PlayerHijinksEdit.resources
 C:\Users\Quinn Gil\Documents\GitHub\FactionMissionRunner\FactionsMissionRunner\obj\Debug\FactionsMissionRunner.Files.StatsEdit.resources
 C:\Users\Quinn Gil\Documents\GitHub\FactionMissionRunner\FactionsMissionRunner\obj\Debug\FactionsMissionRunner.Files.NpcEdit.resources
@@ -58,3 +56,7 @@ C:\Users\quinn\Documents\GitHub\FactionMission\FactionMissionRunner\FactionsMiss
 C:\Users\quinn\Documents\GitHub\FactionMission\FactionMissionRunner\FactionsMissionRunner\obj\Debug\FactionsMissionRunner.csprojResolveAssemblyReference.cache
 C:\Users\quinn\Documents\GitHub\FactionMission\FactionMissionRunner\FactionsMissionRunner\obj\Debug\FactionsMissionRunner.Files.MissionResultsEdit.resources
 C:\Users\quinn\Documents\GitHub\FactionMission\FactionMissionRunner\FactionsMissionRunner\bin\Debug\Files\MissionResult.json
+C:\Users\Quinn Gil\Documents\GitHub\FactionMissionRunner\FactionsMissionRunner\bin\Debug\Files\Mission.json
+C:\Users\Quinn Gil\Documents\GitHub\FactionMissionRunner\FactionsMissionRunner\bin\Debug\Files\MissionResult.json
+C:\Users\Quinn Gil\Documents\GitHub\FactionMissionRunner\FactionsMissionRunner\obj\Debug\FactionsMissionRunner.csprojResolveAssemblyReference.cache
+C:\Users\Quinn Gil\Documents\GitHub\FactionMissionRunner\FactionsMissionRunner\obj\Debug\FactionsMissionRunner.Files.MissionResultsEdit.resources

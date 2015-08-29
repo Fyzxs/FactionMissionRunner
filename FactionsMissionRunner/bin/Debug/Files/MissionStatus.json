@@ -1,35 +1,43 @@
 ﻿[
     {
         "MinValue": 95,
-        "Text": "Perfect Success"
+        "Text": "Perfect Success",
+        "Color":"#00FF00"
     },
     {
         "MinValue": 80,
-        "Text": "Good Success"
+        "Text": "Good Success",
+        "Color":"#00BF80"
     },
     
     {
         "MinValue": 60,
-        "Text": "Success"
+        "Text": "Success",
+        "Color":"#008099"
     },
     {
         "MinValue": 40,
-        "Text": "Poor Success"
+        "Text": "Poor Success",
+        "Color":"#008F99"
     },
     {
         "MinValue": 30,
-        "Text": "Perfect Failure"
+        "Text": "Perfect Failure",
+        "Color":"#BF8888"
     },
     {
         "MinValue": 20,
-        "Text": "Good Failure"
+        "Text": "Good Failure",
+        "Color":"#BF8800"
     },
     {
         "MinValue": 5,
-        "Text": "Failure"
+        "Text": "Failure",
+        "Color":"#BF4400"
     },
     {
         "MinValue": 0,
-        "Text": "Total Failure"
+        "Text": "Total Failure",
+        "Color":"#FF0000"
     }
 ]

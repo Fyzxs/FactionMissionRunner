@@ -153,5 +153,12 @@ namespace FactionsMissionRunner.Files
             NpcLoader.Remove((Npc)lstItems.SelectedItem);
             RefreshList();
         }
+
+        private void nudExperience_ValueChanged(object sender, EventArgs e)
+        {
+            if (lstItems.SelectedItem == null) return;
+            ((Npc)lstItems.SelectedItem).Experience = (int)nudExperience.Value;
+            RefreshList();
+        }
     }
 }

@@ -91,6 +91,37 @@ namespace FactionsMissionRunner
             //log.Flush();
         }
 
+        private void GetTrelloPost()
+        {
+            //log.WriteLine("UpdateForumCode");
+            var forumPost = string.Format("Mission - " + txtMissionName.Text);
+            //log.WriteLine("[MissionName=" + txtMissionName.Text + "]");
+            forumPost += "\r\nMission Level: " + nudMedianPartyLevel.Value;
+            //log.WriteLine("[MissionLevel=" + nudMedianPartyLevel.Value + "]");
+            forumPost += "\r\nStats\r\n";
+            // ReSharper disable once LoopCanBeConvertedToQuery
+            foreach (Stat item in lstDefaultStats.Items)
+            {
+                if (item.Known <= 0)
+                {
+                    //log.WriteLine("Skipping [StatName=" + item.StatName + "] for having <= 0 known");
+                    continue;
+                }
+
+                //log.WriteLine("Writing [StatName=" + item.StatName + "]");
+                forumPost += "\r\n*  " + item.StatName + " : " + (item.Known < 0
+                    ? "?"
+                    : item.Known.ToString());
+            }
+            //log.WriteLine("[Mission Notes=" + txtMissionNotes.Text + "]");
+            if (txtMissionNotes.Text.Length > 0)
+            {
+                forumPost += "\r\nNotes:" + txtMissionNotes.Text;
+            }
+
+            Clipboard.SetText(forumPost);
+        }
+
         private readonly object missionUpdateLock = new object();
         private bool blockMissionUpdate = false;
         private void UpdateMissionObject()
@@ -144,7 +175,7 @@ namespace FactionsMissionRunner
 
         private void btnResolveMission_Click(object sender, EventArgs e)
         {
-            var forumPost = string.Format("[quote=\"[color=#008000]Mission - " + txtMissionName.Text + "[/color]\"]");
+            var forumPost = string.Format("[quote=\"[color=#008000]RESULT Mission - " + txtMissionName.Text + "[/color]\"]");
             //log.WriteLine("[MissionName=" + txtMissionName.Text +Mission Results- " + txtMissionName.Text + "\"]\r\n[list]");
             forumPost += "\r\nParty:";
             // ReSharper disable once LoopCanBeConvertedToQuery
@@ -259,7 +290,7 @@ namespace FactionsMissionRunner
                 }
             }
 
-            return missionStatus == null ? "Uh - Oh" : missionStatus.MissionStatusString;
+            return missionStatus == null ? "Uh - Oh" : ("[color=\"" + missionStatus.Color + "\"" + missionStatus.MissionStatusString + "[color]z" );
         }
 
         protected static readonly Random Rand = ThreadSafeRandom.ThisThreadsRandom;
@@ -438,6 +469,11 @@ namespace FactionsMissionRunner
         {
 
             new MissionResultsEdit().ShowDialog(this);
+        }
+
+        private void btnToTrello_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
