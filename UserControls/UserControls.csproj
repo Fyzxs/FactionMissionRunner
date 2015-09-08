@@ -1,0 +1,219 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C068FF1E-85B1-4139-BAB5-9757259563CC}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>UserControls</RootNamespace>
+    <AssemblyName>UserControls</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="actual\empty\EmptyData.cs" />
+    <Compile Include="actual\empty\EmptyUid.cs" />
+    <Compile Include="actual\empty\EmptyView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="actual\eventargs\DataChangedEventArgs.cs" />
+    <Compile Include="actual\DisplayControls\DisplayHeader.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="actual\DisplayControls\NewForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="actual\DisplayControls\NewForm.Designer.cs">
+      <DependentUpon>NewForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="actual\eventargs\InvalidModelEventArgs.cs" />
+    <Compile Include="actual\mission\controls\MissionViewSwapper.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="actual\mission\forms\NewMissionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="actual\mission\internals\MissionViewSwapperInternal.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="actual\mission\internals\NewMissionFormInternal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="actual\mission\data\MissionData.cs" />
+    <Compile Include="actual\mission\data\MissionDataLoader.cs" />
+    <Compile Include="actual\mission\MissionDisplayController.cs" />
+    <Compile Include="actual\mission\controls\MissionDisplayHeader.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="actual\mission\internals\MissionDisplayListInternal.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="actual\mission\controls\MissionDisplayList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="actual\mission\MissionDisplayModel.cs" />
+    <Compile Include="actual\mission\controls\MissionDisplayView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="actual\mission\internals\MissionDisplayViewInternal.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="actual\mission\MissionUid.cs" />
+    <Compile Include="actual\Data.cs" />
+    <Compile Include="actual\DataLoader.cs" />
+    <Compile Include="actual\DisplayControls\DisplayView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="actual\Uid.cs" />
+    <Compile Include="actual\WrapperControls\TypeDisplayList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="actual\WrapperControls\TypeDisplayList.Designer.cs">
+      <DependentUpon>TypeDisplayList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="actual\DisplayController.cs" />
+    <Compile Include="actual\IDisplayModel.cs" />
+    <Compile Include="actual\WrapperControls\ViewSwapper.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="actual\WrapperControls\ViewSwapper.Designer.cs">
+      <DependentUpon>ViewSwapper.cs</DependentUpon>
+    </Compile>
+    <Compile Include="controls\core\EditableLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="controls\DisplayList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="controls\DisplayList.Designer.cs">
+      <DependentUpon>DisplayList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="controls\editors\LabelIntegerEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="controls\editors\LabelIntegerEditor.Designer.cs">
+      <DependentUpon>LabelIntegerEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="controls\editors\LabelTextEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="controls\editors\LabelTextEditor.Designer.cs">
+      <DependentUpon>LabelTextEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="controls\headers\SampleHeader.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="controls\headers\SampleHeader.Designer.cs">
+      <DependentUpon>SampleHeader.cs</DependentUpon>
+    </Compile>
+    <Compile Include="controls\labels\LabelIntegerEdit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="controls\labels\LabelTextEdit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="controls\Sample.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="controls\Sample.Designer.cs">
+      <DependentUpon>Sample.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DisplayPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="actual\DisplayControls\DisplayHeader.resx">
+      <DependentUpon>DisplayHeader.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="actual\DisplayControls\NewForm.resx">
+      <DependentUpon>NewForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="actual\mission\controls\MissionDisplayHeader.resx">
+      <DependentUpon>MissionDisplayHeader.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="actual\mission\controls\MissionDisplayList.resx">
+      <DependentUpon>MissionDisplayList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="actual\mission\controls\MissionDisplayView.resx">
+      <DependentUpon>MissionDisplayView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="actual\mission\controls\MissionViewSwapper.resx">
+      <DependentUpon>MissionViewSwapper.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="actual\WrapperControls\TypeDisplayList.resx">
+      <DependentUpon>TypeDisplayList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="actual\WrapperControls\ViewSwapper.resx">
+      <DependentUpon>ViewSwapper.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="controls\DisplayList.resx">
+      <DependentUpon>DisplayList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="controls\editors\LabelIntegerEditor.resx">
+      <DependentUpon>LabelIntegerEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="controls\editors\LabelTextEditor.resx">
+      <DependentUpon>LabelTextEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="controls\headers\SampleHeader.resx">
+      <DependentUpon>SampleHeader.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="controls\Sample.resx">
+      <DependentUpon>Sample.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="images\delete.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

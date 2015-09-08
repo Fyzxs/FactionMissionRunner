@@ -1,0 +1,11 @@
+C:\Users\Quinn Gil\Documents\GitHub\FactionMissionRunner\FactionMissionRunnerDataBound\bin\Debug\FactionMissionRunnerDataBound.exe.config
+C:\Users\Quinn Gil\Documents\GitHub\FactionMissionRunner\FactionMissionRunnerDataBound\bin\Debug\FactionMissionRunnerDataBound.exe
+C:\Users\Quinn Gil\Documents\GitHub\FactionMissionRunner\FactionMissionRunnerDataBound\bin\Debug\FactionMissionRunnerDataBound.pdb
+C:\Users\Quinn Gil\Documents\GitHub\FactionMissionRunner\FactionMissionRunnerDataBound\obj\Debug\FactionMissionRunnerDataBound.FormMain.resources
+C:\Users\Quinn Gil\Documents\GitHub\FactionMissionRunner\FactionMissionRunnerDataBound\obj\Debug\FactionMissionRunnerDataBound.Properties.Resources.resources
+C:\Users\Quinn Gil\Documents\GitHub\FactionMissionRunner\FactionMissionRunnerDataBound\obj\Debug\FactionMissionRunnerDataBound.csproj.GenerateResource.Cache
+C:\Users\Quinn Gil\Documents\GitHub\FactionMissionRunner\FactionMissionRunnerDataBound\obj\Debug\FactionMissionRunnerDataBound.exe
+C:\Users\Quinn Gil\Documents\GitHub\FactionMissionRunner\FactionMissionRunnerDataBound\obj\Debug\FactionMissionRunnerDataBound.pdb
+C:\Users\Quinn Gil\Documents\GitHub\FactionMissionRunner\FactionMissionRunnerDataBound\obj\Debug\FactionMissionRunnerDataBound.csprojResolveAssemblyReference.cache
+C:\Users\Quinn Gil\Documents\GitHub\FactionMissionRunner\FactionMissionRunnerDataBound\bin\Debug\UserControls.dll
+C:\Users\Quinn Gil\Documents\GitHub\FactionMissionRunner\FactionMissionRunnerDataBound\bin\Debug\UserControls.pdb
