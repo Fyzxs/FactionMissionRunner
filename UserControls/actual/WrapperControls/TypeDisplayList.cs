@@ -13,12 +13,12 @@ using UserControls.actual.mission;
 
 namespace UserControls.actual
 {
-    public abstract partial class TypeDisplayList<TDisplayView, TData, TUid, TUidType, TDisplayHeader> : UserControl 
+    public abstract partial class TypeDisplayList<TDisplayView, TData, TUid, TUidType, TDisplayHeader> : UserControl
         where TDisplayView : DisplayView<TData, TUid, TUidType>, new()
         where TData : Data<TUid, TUidType>
         where TUid : Uid<TUidType>
         where TDisplayHeader : DisplayHeader
-        where TUidType: IComparable
+        where TUidType : IComparable
     {
 
         public override bool AllowDrop
@@ -32,12 +32,10 @@ namespace UserControls.actual
         }
 
         private bool isDropCopy;
+
         public bool IsDropCopy
         {
-            get
-            {
-                return isDropCopy;
-            }
+            get { return isDropCopy; }
             set
             {
                 isDropCopy = value;
@@ -52,10 +50,7 @@ namespace UserControls.actual
 
         public bool IgnoreFullData { get; set; }
 
-        protected TypeDisplayList()
-        {
-        } 
-        
+
         public void ShowAddButton(bool show)
         {
             var pnlHeader = flpContainer.Controls.Find("pnlHeader", false)[0];
@@ -123,21 +118,12 @@ namespace UserControls.actual
         {
             if (IsDropCopy)
             {
-                var clone = new TDisplayView
-                {
-                    DataItem = view.DataItem,
-                    Parent = flpItems
-                };
+                return;
+            }
+            view.Parent = flpItems;
+            view.MouseDown += view_MouseDown;
+            view.InvalidModel += OnInvalidModel;
 
-                clone.MouseDown += view_MouseDown;
-                clone.InvalidModel += OnInvalidModel;
-            }
-            else
-            {
-                view.Parent = flpItems;
-                view.MouseDown += view_MouseDown;
-                view.InvalidModel += OnInvalidModel;
-            }
             ClearDragEffects();
         }
 
@@ -161,7 +147,8 @@ namespace UserControls.actual
         }
 
         private TDisplayView draggingView = null;
-        protected virtual void view_MouseDown(object sender, MouseEventArgs e)
+
+        protected internal virtual void view_MouseDown(object sender, MouseEventArgs e)
         {
             if (!flpItems.AllowDrop)
             {
@@ -173,43 +160,92 @@ namespace UserControls.actual
             {
                 return;
             }
-            var emptyView = new EmptyView<TDisplayView, TData, TUid, TUidType>(view) {Visible = false};
-            draggingView = view;
-            flpItems.Controls.Add(emptyView);
-            flpItems.Controls.SetChildIndex(emptyView, flpItems.Controls.GetChildIndex(view));
-            flpItems.Controls.Remove(view);
-            view.BorderStyle = BorderStyle.Fixed3D;
-            flpItems.DoDragDrop(view, IsDropCopy ? DragDropEffects.Copy : DragDropEffects.Move);
+            if (!IsDropCopy)
+            {
+                var emptyView = new EmptyView<TDisplayView, TData, TUid, TUidType>(view) {Visible = false};
+                draggingView = view;
+                flpItems.Controls.Add(emptyView);
+                flpItems.Controls.SetChildIndex(emptyView, flpItems.Controls.GetChildIndex(view));
+                flpItems.Controls.Remove(view);
+                flpItems.DoDragDrop(view, IsDropCopy ? DragDropEffects.Copy : DragDropEffects.Move);
+            }
+            else
+            {
+                if (view.Tag == null || !view.Tag.Equals("CLONE"))
+                {
+                    var clone = new TDisplayView
+                    {
+                        DataItem = view.DataItem,
+                        Parent = null,
+                        BorderStyle = BorderStyle.Fixed3D
+                    };
+                    flpItems.DoDragDrop(clone, DragDropEffects.Copy);
+                }
+                else
+                {
+                    flpItems.DoDragDrop(view, DragDropEffects.Copy);
+                    draggingView = view;
+                }
+            }
 
+            view.BorderStyle = BorderStyle.Fixed3D;
         }
 
 
         public void ClearDragEffects(bool abandon = false)
         {
-            for(var i = flpItems.Controls.Count - 1; i >= 0; i--)
+            for (var i = flpItems.Controls.Count - 1; i >= 0; i--)
             {
-                var view = flpItems.Controls[i] as EmptyView<TDisplayView, TData, TUid, TUidType>;
-                if (view == null)
+                if (!IsDropCopy)
                 {
-                    continue;
+                    var view = flpItems.Controls[i] as EmptyView<TDisplayView, TData, TUid, TUidType>;
+                    if (view == null)
+                    {
+                        continue;
+                    }
+                    flpItems.Controls.RemoveAt(i);
+                    if (abandon)
+                    {
+                        flpItems.Controls.Add(draggingView);
+                        flpItems.Controls.SetChildIndex(draggingView, i);
+                    }
+                    if (draggingView != null)
+                    {
+                        draggingView.BorderStyle = BorderStyle.FixedSingle;
+                        draggingView = null;
+                    }
+                    break;
                 }
-                flpItems.Controls.RemoveAt(i);
-                if (abandon)
+                else
                 {
-                    flpItems.Controls.Add(draggingView);
-                    flpItems.Controls.SetChildIndex(draggingView, i);
+                    if (draggingView != null)
+                    {
+                        flpItems.Controls.Remove(draggingView);
+                        draggingView.Parent = null;
+                        draggingView = null;
+                    }
+                    //var displayView = flpItems.Controls[i] as TDisplayView;
+                    //if (displayView != null)
+                    //{
+                    //    if (abandon && displayView.Tag != null && displayView.Tag.Equals("CLONE"))
+                    //    {
+                    //        flpItems.Controls.RemoveAt(i);
+                    //    }
+                    //    else
+                    //    {
+                    //        displayView.BorderStyle = BorderStyle.FixedSingle;
+                    //    }
+                    //}
                 }
-                break;
-            }
-            if (draggingView != null)
-            {
-                draggingView.BorderStyle = BorderStyle.FixedSingle;
-                draggingView = null;
             }
         }
 
         internal virtual void ToggleEmptyView(bool show)
         {
+            if (IsDropCopy)
+            {
+                return;
+            }
             for (var i = flpItems.Controls.Count - 1; i >= 0; i--)
             {
                 var view = flpItems.Controls[i] as EmptyView<TDisplayView, TData, TUid, TUidType>;
@@ -226,7 +262,7 @@ namespace UserControls.actual
             }
         }
 
-        protected abstract void OnInvalidModel(object sender, EventArgs eventArgs);
+        protected internal abstract void OnInvalidModel(object sender, EventArgs eventArgs);
 
         protected abstract void DisplayList_Load(object sender, EventArgs e);
 
@@ -234,6 +270,7 @@ namespace UserControls.actual
         {
             flpItems.DragDrop += dragDrop;
         }
+
         internal void AddItemsDragEnter(DragEventHandler dragEnter)
         {
             flpItems.DragEnter += dragEnter;

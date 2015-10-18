@@ -18,3 +18,25 @@ C:\Users\Quinn Gil\Documents\GitHub\FactionMissionRunner\UserControls\obj\Debug\
 C:\Users\Quinn Gil\Documents\GitHub\FactionMissionRunner\UserControls\obj\Debug\UserControls.actual.DisplayControls.DisplayHeader.resources
 C:\Users\Quinn Gil\Documents\GitHub\FactionMissionRunner\UserControls\obj\Debug\UserControls.actual.mission.MissionDisplayList.resources
 C:\Users\Quinn Gil\Documents\GitHub\FactionMissionRunner\UserControls\obj\Debug\UserControls.csprojResolveAssemblyReference.cache
+C:\Users\quinn\Documents\GitHub\FactionMissionRunner\UserControls\bin\Debug\UserControls.dll
+C:\Users\quinn\Documents\GitHub\FactionMissionRunner\UserControls\bin\Debug\UserControls.pdb
+C:\Users\quinn\Documents\GitHub\FactionMissionRunner\UserControls\obj\Debug\UserControls.actual.DisplayControls.DisplayHeader.resources
+C:\Users\quinn\Documents\GitHub\FactionMissionRunner\UserControls\obj\Debug\UserControls.actual.mission.forms.NewForm.resources
+C:\Users\quinn\Documents\GitHub\FactionMissionRunner\UserControls\obj\Debug\UserControls.actual.mission.MissionDisplayHeader.resources
+C:\Users\quinn\Documents\GitHub\FactionMissionRunner\UserControls\obj\Debug\UserControls.actual.mission.MissionDisplayList.resources
+C:\Users\quinn\Documents\GitHub\FactionMissionRunner\UserControls\obj\Debug\UserControls.actual.mission.MissionDisplayView.resources
+C:\Users\quinn\Documents\GitHub\FactionMissionRunner\UserControls\obj\Debug\UserControls.actual.mission.controls.MissionViewSwapper.resources
+C:\Users\quinn\Documents\GitHub\FactionMissionRunner\UserControls\obj\Debug\UserControls.actual.TypeDisplayList.resources
+C:\Users\quinn\Documents\GitHub\FactionMissionRunner\UserControls\obj\Debug\UserControls.actual.WrapperControls.ViewDupper.resources
+C:\Users\quinn\Documents\GitHub\FactionMissionRunner\UserControls\obj\Debug\UserControls.actual.WrapperControls.ViewSwapper.resources
+C:\Users\quinn\Documents\GitHub\FactionMissionRunner\UserControls\obj\Debug\UserControls.controls.DisplayList.resources
+C:\Users\quinn\Documents\GitHub\FactionMissionRunner\UserControls\obj\Debug\FactionMissionRunnerDataBound.controls.editors.LabelIntegerEditor.resources
+C:\Users\quinn\Documents\GitHub\FactionMissionRunner\UserControls\obj\Debug\FactionMissionRunnerDataBound.controls.editors.LabelTextEditor.resources
+C:\Users\quinn\Documents\GitHub\FactionMissionRunner\UserControls\obj\Debug\UserControls.controls.headers.SampleHeader.resources
+C:\Users\quinn\Documents\GitHub\FactionMissionRunner\UserControls\obj\Debug\UserControls.controls.Sample.resources
+C:\Users\quinn\Documents\GitHub\FactionMissionRunner\UserControls\obj\Debug\UserControls.Properties.Resources.resources
+C:\Users\quinn\Documents\GitHub\FactionMissionRunner\UserControls\obj\Debug\UserControls.csproj.GenerateResource.Cache
+C:\Users\quinn\Documents\GitHub\FactionMissionRunner\UserControls\obj\Debug\UserControls.dll
+C:\Users\quinn\Documents\GitHub\FactionMissionRunner\UserControls\obj\Debug\UserControls.pdb
+C:\Users\quinn\Documents\GitHub\FactionMissionRunner\UserControls\obj\Debug\UserControls.actual.mission.controls.MissionViewDupper.resources
+C:\Users\quinn\Documents\GitHub\FactionMissionRunner\UserControls\obj\Debug\UserControls.csprojResolveAssemblyReference.cache

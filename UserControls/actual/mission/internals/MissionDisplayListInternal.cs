@@ -49,7 +49,7 @@ namespace UserControls.actual.mission
             
         }
 
-        protected override void OnInvalidModel(object sender, EventArgs eventArgs)
+        protected internal override void OnInvalidModel(object sender, EventArgs eventArgs)
         {
             var args = eventArgs as InvalidModelEventArgs<MissionData, MissionUid, int>;
             if (args == null)

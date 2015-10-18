@@ -59,11 +59,17 @@
       <DependentUpon>NewForm.cs</DependentUpon>
     </Compile>
     <Compile Include="actual\eventargs\InvalidModelEventArgs.cs" />
+    <Compile Include="actual\mission\controls\MissionViewDupper.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="actual\mission\controls\MissionViewSwapper.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="actual\mission\forms\NewMissionForm.cs">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="actual\mission\internals\MissionViewDupperInternal.cs">
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="actual\mission\internals\MissionViewSwapperInternal.cs">
       <SubType>UserControl</SubType>
@@ -105,6 +111,12 @@
     </Compile>
     <Compile Include="actual\DisplayController.cs" />
     <Compile Include="actual\IDisplayModel.cs" />
+    <Compile Include="actual\WrapperControls\ViewDupper.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="actual\WrapperControls\ViewDupper.Designer.cs">
+      <DependentUpon>ViewDupper.cs</DependentUpon>
+    </Compile>
     <Compile Include="actual\WrapperControls\ViewSwapper.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -176,11 +188,17 @@
     <EmbeddedResource Include="actual\mission\controls\MissionDisplayView.resx">
       <DependentUpon>MissionDisplayView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="actual\mission\controls\MissionViewDupper.resx">
+      <DependentUpon>MissionViewDupper.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="actual\mission\controls\MissionViewSwapper.resx">
       <DependentUpon>MissionViewSwapper.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="actual\WrapperControls\TypeDisplayList.resx">
       <DependentUpon>TypeDisplayList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="actual\WrapperControls\ViewDupper.resx">
+      <DependentUpon>ViewDupper.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="actual\WrapperControls\ViewSwapper.resx">
       <DependentUpon>ViewSwapper.cs</DependentUpon>

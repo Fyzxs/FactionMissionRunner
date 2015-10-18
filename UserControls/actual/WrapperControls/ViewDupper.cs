@@ -12,7 +12,7 @@ using UserControls.actual.DisplayControls;
 
 namespace UserControls.actual.WrapperControls
 {
-    public partial class ViewSwapper<TDisplayList, TDisplayView, TData, TUid, TUidType, TDisplayHeader> : UserControl
+    public partial class ViewDupper<TDisplayList, TDisplayView, TData, TUid, TUidType, TDisplayHeader> : UserControl
         where TDisplayList : TypeDisplayList<TDisplayView, TData, TUid, TUidType, TDisplayHeader>, new()
         where TDisplayView : DisplayView<TData, TUid, TUidType>, new()
         where TData : Data<TUid, TUidType>
@@ -22,12 +22,10 @@ namespace UserControls.actual.WrapperControls
     {
 
         private bool isDropCopy;
+
         public bool IsDropCopy
         {
-            get
-            {
-                return isDropCopy;
-            }
+            get { return isDropCopy; }
             set
             {
                 isDropCopy = value;
@@ -36,7 +34,7 @@ namespace UserControls.actual.WrapperControls
             }
         }
 
-        public ViewSwapper()
+        public ViewDupper()
         {
             InitializeComponent();
             lstXfer.ShowAddButton(false);
@@ -52,17 +50,19 @@ namespace UserControls.actual.WrapperControls
             lstFull.AddItemsQueryContinueDrag(pnl_QueryContinueDrag);
         }
 
+
         private void pnl_DragOver(object sender, DragEventArgs e)
         {
             var flp = sender as FlowLayoutPanel;
-            var view = e.Data.GetData(typeof(TDisplayView)) as TDisplayView;
-            Debug.WriteLine("Inside pnl_DragOver [sender={0}] [IsDropCopy={1}] [e.Data={2}] [view={3}] [flp={4}]", sender, IsDropCopy, e.Data, view, flp);
-            if (flp == null || view == null || (isDropCopy && !lstXfer.IsPanelItems(flp)))
+            var view = e.Data.GetData(typeof (TDisplayView)) as TDisplayView;
+            Debug.WriteLine("Inside pnl_DragOver [sender={0}] [IsDropCopy={1}] [e.Data={2}] [view={3}] [flp={4}]",
+                sender, IsDropCopy, e.Data, view, flp);
+            if (flp == null || !lstXfer.IsPanelItems(flp) || view == null)
             {
                 return;
             }
 
-            Debug.WriteLine("Changing Order");
+            Debug.WriteLine("Doing stuff");
             var p = flp.PointToClient(new Point(e.X, e.Y));
             var item = flp.GetChildAtPoint(p);
             if (item == view)
@@ -72,21 +72,22 @@ namespace UserControls.actual.WrapperControls
             var index = item == null ? flp.Controls.Count - 1 : flp.Controls.GetChildIndex(item, false);
             var viewIndex = flp.Controls.GetChildIndex(view, false);
             Debug.WriteLine("[index={0}] [item={1}] [viewIndex={2}]", index, item, viewIndex);
-            if (isDropCopy && (view.Tag == null || !view.Tag.Equals("CLONE")))
-        {
+            if (view.Tag == null || !view.Tag.Equals("CLONE"))
+            {
+
                 view.Tag = "CLONE";
                 view.InvalidModel += lstXfer.OnInvalidModel;
                 view.MouseDown += lstXfer.view_MouseDown;
-            }
-            if (index < 0 || item == null || viewIndex < 0)
-            {
-                flp.Controls.Add(view);
-                if (viewIndex < 0)
+                if (index < 0 || item == null || viewIndex < 0)
                 {
-                    return;
+                    flp.Controls.Add(view);
+                    if (viewIndex < 0)
+                    {
+                        return;
+                    }
                 }
+                flp.Controls.SetChildIndex(view, index);
             }
-            flp.Controls.SetChildIndex(view, index);
         }
 
 
@@ -99,9 +100,13 @@ namespace UserControls.actual.WrapperControls
             //If the left mouse button is up and the mouse is currently over a list
             if (Control.MouseButtons != MouseButtons.Left)
             {
-                if (!xferRect.Contains(PointToClient(Control.MousePosition)) &&
-                    (isDropCopy || !fullRect.Contains(PointToClient(Control.MousePosition))))
+                if (
+                    (!xferRect.Contains(PointToClient(Control.MousePosition))
+                        //&&
+                        // !fullRect.Contains(PointToClient(Control.MousePosition))
+                        ))
                 {
+
                     //Cancel the DragDrop Action
                     e.Action = DragAction.Cancel;
                     //Manually fire the MouseUp event
@@ -112,86 +117,80 @@ namespace UserControls.actual.WrapperControls
                 {
                     //it is inside one of them AND the mouse is up
                     e.Action = DragAction.Drop;
-                    if (isDropCopy)
-                    {
-                        lstFull.ClearDragEffects();
-                        lstXfer.ClearDragEffects();
-                    }
+                    lstFull.ClearDragEffects();
+                    lstXfer.ClearDragEffects();
                 }
             }
         }
 
         private void pnl_DragEnter(object sender, DragEventArgs e)
         {
-            e.Effect = DragDropEffects.Move;
-            if (IsDropCopy) { return; }
             var flp = sender as FlowLayoutPanel;
-            if (lstXfer.IsPanelItems(flp))//Dragging From
-            {
-                lstXfer.ToggleEmptyView(false);
-            }
-            if (lstFull.IsPanelItems(flp))//Dragging From
-            {
-                lstFull.ToggleEmptyView(false);
-            }
+            e.Effect = DragDropEffects.Move;
+
+            //if (lstXfer.IsPanelItems(flp))//Dragging From
+            //{
+            //    lstXfer.ToggleEmptyView(false);
+            //}
+            //if (lstFull.IsPanelItems(flp))//Dragging From
+            //{
+            //    lstFull.ToggleEmptyView(false);
+            //}
         }
+
         private void pnl_DragLeave(object sender, EventArgs e)
         {
-            if (IsDropCopy) { return; }
             var flp = sender as FlowLayoutPanel;
-            if (lstXfer.IsPanelItems(flp))//Dragging From
-            {
-                lstXfer.ToggleEmptyView(true);
-            }
-            else if (lstFull.IsPanelItems(flp)) //Dragging From
-            {
-                lstFull.ToggleEmptyView(true);
-            }
+            //if (lstXfer.IsPanelItems(flp))//Dragging From
+            //{
+            //    lstXfer.ToggleEmptyView(true);
+            //}
+            //else if (lstFull.IsPanelItems(flp)) //Dragging From
+            //{
+            //    lstFull.ToggleEmptyView(true);
+            //}
         }
 
         private void pnl_DragDrop(object sender, DragEventArgs e)
         {
             var flp = sender as FlowLayoutPanel;
-            var view = e.Data.GetData(typeof(TDisplayView)) as TDisplayView;
-            Debug.WriteLine("Inside pnl_DragDrop [sender={0}] [IsDropCopy={1}] [e.Data={2}] [view={3}]", sender, IsDropCopy, e.Data, view);
+            var view = e.Data.GetData(typeof (TDisplayView)) as TDisplayView;
+            Debug.WriteLine("Inside pnl_DragDrop [sender={0}] [IsDropCopy={1}] [e.Data={2}] [view={3}]", sender,
+                IsDropCopy, e.Data, view);
             if (flp == null || view == null)
             {
                 return;
             }
-            if (isDropCopy)
-            {
-                lstFull.ClearDragEffects();
-                lstXfer.ClearDragEffects();
-            }
-            else
-            {
-                Debug.WriteLine("[lstFull.IsPanelItems(flp)={0}] [lstXfer.IsPanelItemsParent(view)={1}]", lstFull.IsPanelItems(flp), lstXfer.IsPanelItemsParent(view));
-                Debug.WriteLine("[lstXfer.IsPanelItems(flp)={0}] [lstFull.IsPanelItemsParent(view)={1}]", lstXfer.IsPanelItems(flp), lstFull.IsPanelItemsParent(view));
-                if (lstFull.IsPanelItems(flp) && lstXfer.IsPanelItemsParent(view))
-                {
-                    Debug.WriteLine("Dropping into lstFull");
-                    //Dropping into lstFull
-                    lstFull.DroppedView(view);
-                    lstXfer.DraggedView(view);
+            //Debug.WriteLine("[lstFull.IsPanelItems(flp)={0}] [lstXfer.IsPanelItemsParent(view)={1}]", lstFull.IsPanelItems(flp), lstXfer.IsPanelItemsParent(view));
+            //Debug.WriteLine("[lstXfer.IsPanelItems(flp)={0}] [lstFull.IsPanelItemsParent(view)={1}]", lstXfer.IsPanelItems(flp), lstFull.IsPanelItemsParent(view));
+            //if (lstFull.IsPanelItems(flp) && lstXfer.IsPanelItemsParent(view))
+            //{
+            //    Debug.WriteLine("Dropping into lstFull");
+            //    //Dropping into lstFull
+            //    lstFull.DroppedView(view);
+            //    lstXfer.DraggedView(view);
 
-                }
-                else if (lstXfer.IsPanelItems(flp) && lstFull.IsPanelItemsParent(view))
-                {
-                    Debug.WriteLine("Dropping into lstXfer");
-                    //Dropping into lstXfer
-                    lstXfer.DroppedView(view);
-                    lstFull.DraggedView(view);
-                }
-                else
-                {
-                    Debug.WriteLine("Dropping into self");
+            //}
+            //else if (lstXfer.IsPanelItems(flp) && lstFull.IsPanelItemsParent(view))
+            //{
+            //    Debug.WriteLine("Dropping into lstXfer");
+            //    //Dropping into lstXfer
+            //    lstXfer.DroppedView(view);
+            //    lstFull.DraggedView(view);
+            //}
+            //else
+            //{
+            //    Debug.WriteLine("Dropping into self");
 
-                    flp.Controls.Add(view);
+            //    flp.Controls.Add(view);
 
-                    lstFull.ClearDragEffects();
-                    lstXfer.ClearDragEffects();
-                }
-            }
+            //    lstFull.ClearDragEffects();
+            //    lstXfer.ClearDragEffects();
+            //}
+
+            lstFull.ClearDragEffects();
+            lstXfer.ClearDragEffects();
+
             AdjustViewOrder(new Point(e.X, e.Y), flp, view);
         }
 
