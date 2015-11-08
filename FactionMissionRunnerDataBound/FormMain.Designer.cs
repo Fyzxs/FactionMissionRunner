@@ -44,8 +44,8 @@ namespace FactionMissionRunnerDataBound
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.label6 = new System.Windows.Forms.Label();
             this.missionViewSwapper1 = new UserControls.actual.mission.controls.MissionViewSwapper();
-            this.missionDisplayList1 = new UserControls.actual.mission.MissionDisplayListInternal();
             this.missionViewDupper1 = new UserControls.actual.mission.controls.MissionViewDupper();
+            this.missionDisplayList1 = new UserControls.actual.mission.MissionDisplayListInternal();
             this.pnlDragFrom.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -156,6 +156,14 @@ namespace FactionMissionRunnerDataBound
             this.missionViewSwapper1.Size = new System.Drawing.Size(534, 454);
             this.missionViewSwapper1.TabIndex = 4;
             // 
+            // missionViewDupper1
+            // 
+            this.missionViewDupper1.IsDropCopy = true;
+            this.missionViewDupper1.Location = new System.Drawing.Point(12, 287);
+            this.missionViewDupper1.Name = "missionViewDupper1";
+            this.missionViewDupper1.Size = new System.Drawing.Size(534, 454);
+            this.missionViewDupper1.TabIndex = 5;
+            // 
             // missionDisplayList1
             // 
             this.missionDisplayList1.AutoSize = true;
@@ -169,24 +177,16 @@ namespace FactionMissionRunnerDataBound
             this.missionDisplayList1.Size = new System.Drawing.Size(218, 363);
             this.missionDisplayList1.TabIndex = 3;
             // 
-            // missionViewDupper1
-            // 
-            this.missionViewDupper1.IsDropCopy = true;
-            this.missionViewDupper1.Location = new System.Drawing.Point(12, 287);
-            this.missionViewDupper1.Name = "missionViewDupper1";
-            this.missionViewDupper1.Size = new System.Drawing.Size(534, 454);
-            this.missionViewDupper1.TabIndex = 5;
-            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(850, 741);
+            this.Controls.Add(this.missionViewSwapper1);
             this.Controls.Add(this.missionViewDupper1);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.pnlDragFrom);
             this.Controls.Add(this.pnlDragTo);
-            this.Controls.Add(this.missionViewSwapper1);
             this.Controls.Add(this.missionDisplayList1);
             this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

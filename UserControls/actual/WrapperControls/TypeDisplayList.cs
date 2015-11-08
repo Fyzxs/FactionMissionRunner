@@ -173,16 +173,19 @@ namespace UserControls.actual
             {
                 if (view.Tag == null || !view.Tag.Equals("CLONE"))
                 {
+                    Debug.WriteLine("CLONING");
                     var clone = new TDisplayView
                     {
                         DataItem = view.DataItem,
                         Parent = null,
                         BorderStyle = BorderStyle.Fixed3D
                     };
+                    clone.MouseDown += view_MouseDown;
                     flpItems.DoDragDrop(clone, DragDropEffects.Copy);
                 }
                 else
                 {
+                    Debug.WriteLine("SETTING DraggingView");
                     flpItems.DoDragDrop(view, DragDropEffects.Copy);
                     draggingView = view;
                 }
@@ -218,11 +221,12 @@ namespace UserControls.actual
                 }
                 else
                 {
-                    if (draggingView != null)
+                    if (draggingView != null && abandon)
                     {
                         flpItems.Controls.Remove(draggingView);
                         draggingView.Parent = null;
                         draggingView = null;
+                        continue;
                     }
                     //var displayView = flpItems.Controls[i] as TDisplayView;
                     //if (displayView != null)
@@ -236,6 +240,13 @@ namespace UserControls.actual
                     //        displayView.BorderStyle = BorderStyle.FixedSingle;
                     //    }
                     //}
+                }
+                draggingView = null;
+
+                var cleanView = flpItems.Controls[i] as TDisplayView;
+                if (cleanView != null)
+                {
+                    cleanView.BorderStyle = BorderStyle.FixedSingle;
                 }
             }
         }

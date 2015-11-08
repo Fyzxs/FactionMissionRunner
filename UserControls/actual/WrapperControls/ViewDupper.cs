@@ -112,6 +112,8 @@ namespace UserControls.actual.WrapperControls
                     //Manually fire the MouseUp event
                     lstFull.ClearDragEffects(true);
                     lstXfer.ClearDragEffects(true);
+                    
+                    
                 }
                 else
                 {
