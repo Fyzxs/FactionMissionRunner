@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FactionMissionRunnerDataBou
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserControls", "UserControls\UserControls.csproj", "{C068FF1E-85B1-4139-BAB5-9757259563CC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseContainer", "DatabaseContainer\DatabaseContainer.csproj", "{8920B372-F48E-44D2-9F01-3071D9CD0804}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{C068FF1E-85B1-4139-BAB5-9757259563CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C068FF1E-85B1-4139-BAB5-9757259563CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C068FF1E-85B1-4139-BAB5-9757259563CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8920B372-F48E-44D2-9F01-3071D9CD0804}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8920B372-F48E-44D2-9F01-3071D9CD0804}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8920B372-F48E-44D2-9F01-3071D9CD0804}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8920B372-F48E-44D2-9F01-3071D9CD0804}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

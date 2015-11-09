@@ -1,0 +1,171 @@
+﻿ResultItems *- Results
+ResultItems *- CausalBoons
+CausalBoons *- CausalBoonType
+MissionFinishResults *- Mission
+MissionFinishResults *- CausalBoons
+Mission *- MissionCategory
+
+class Results<< (T,orchid) >> {
+    GUID
+    difference
+}
+class ResultItems<< (T,orchid) >> {
+    resultsId
+    CausalBoonsId
+}
+class CausalBoons<< (T,orchid) >> {
+    GUID
+    CausalBoonTypeId
+    Text
+}
+Class CausalBoonType<< (T,orchid) >> {
+    GUID
+    name
+}
+
+class MissionFinishResults<< (T,orchid) >> {
+    MissionId
+    CausalBoonsId
+}
+class Mission << (T,orchid) >> {
+    GUID primaryKey
+    string name
+    level
+    party_adjustment
+    into_text
+    finish_text
+    finished
+    archived
+    missionWeek
+    missionCategoryId
+}
+
+class MissionCategory<< (T,orchid) >>{
+    GUID
+    text
+}
+
+MissionAttributeRolls *- Mission
+MissionAttributeRolls *- Attributes
+
+class MissionAttributeRolls<< (T,orchid) >>{
+    missionId
+    attributeId
+    rolled
+}
+MissionSuccessRolls *- Mission
+class MissionSuccessRolls<< (T,orchid) >> {
+    missionId
+    attributeBonus
+    rolled
+}
+
+MissionNpc *- Mission
+MissionNpc *- Npc
+class MissionNpc<< (T,orchid) >> {
+    missionId
+    NpcId
+}
+
+class Hijinks<< (T,orchid) >> {
+    GUID
+    text
+}
+
+Npc *- Owner
+class Npc<< (T,orchid) >> {
+    GUID
+    name
+    OwnerId
+    dead
+    experience
+    recruitedWeek
+    notes
+}
+
+class Owner<< (T,orchid) >> {
+    GUID
+    text
+}
+
+NpcRelationship *- Npc
+NpcRelationship *- Npc
+NpcRelationship *- NpcViewType
+class NpcRelationship<< (T,orchid) >> {
+    npcSourceId
+    npcTowardsId
+    npcViewTypeId
+}
+class NpcViewType<< (T,orchid) >> {
+    GUID
+    Text
+}
+NpcHijinks *- Hijinks
+NpcHijinks *- Npc
+NpcHijinks *- Mission
+class NpcHijinks<< (T,orchid) >> {
+    HijinksId
+    npcId
+    missionId
+}
+
+NpcClass *- Npc
+NpcClass *- Class
+class NpcClass<< (T,orchid) >> {
+   NpcId
+   ClassId
+   level
+}
+
+NpcStats *- Stats
+NpcStats *- Npc
+class NpcStats<< (T,orchid) >> {
+    statId
+    NpcId
+    value
+}
+NpcAttributes *- Npc
+NpcAttributes *- Attributes
+class NpcAttributes<< (T,orchid) >> {
+    npcId
+    attributeId
+    expertise
+    advantage
+    value
+}
+class Group<< (T,orchid) >> {
+    GUID
+    name
+}
+GroupNpcs *- Group
+GroupNpcs *- Npc
+class GroupNpcs<< (T,orchid) >> {
+    groupId
+    npcId
+}
+MissionAttributes *- Mission
+MissionAttributes *- Attributes
+class MissionAttributes<< (T,orchid) >> {
+    missionId
+    attributeId
+    value
+}
+
+class Attributes<< (T,orchid) >> {
+    GUID primaryKey
+    name
+}
+class Stats<< (T,orchid) >> {
+    GUID
+    name
+}
+Class *- ClassArchType
+class Class<< (T,orchid) >> {
+    GUID
+    name
+    archtypeId
+}
+class ClassArchType<< (T,orchid) >> {
+    GUID
+    name
+}
